@@ -1,48 +1,47 @@
 # Market Cloud Frontend
 
-This is the official React frontend for Market Cloud.
+Market Cloud의 공식 React 프론트엔드입니다.
 
-## Stack
+## 기술 스택
 
 - React
 - TypeScript
 - Vite
-- CSS modules by feature are not used yet; global app styles live in `src/styles/app.css`.
+- 전역 스타일: `src/styles/app.css`
 
-## Development
+## 개발 실행
 
-The frontend expects the FastAPI backend on port `8001`.
+프론트엔드는 FastAPI 백엔드가 `8001` 포트에서 실행 중이라고 가정합니다.
 
 ```powershell
 npm.cmd install
 npm.cmd run dev -- --host 127.0.0.1 --port 5174
 ```
 
-Vite proxies `/api` to:
+Vite는 `/api` 요청을 다음 백엔드로 프록시합니다.
 
 ```text
 http://127.0.0.1:8001
 ```
 
-## Build
+## 빌드
 
 ```powershell
 npm.cmd run build
 ```
 
-## Source Layout
+## 소스 구조
 
-- `src/app/`: app shell and top-level state wiring
-- `src/entities/`: TypeScript API models
-- `src/features/market-map/`: market and sector map
-- `src/features/insights/`: insight panel
-- `src/features/news-feed/`: news and disclosure dock
-- `src/features/stock-overview/`: stock Overview, KPI, chart
-- `src/services/`: API client
-- `src/shared/`: formatting and selection state helpers
-- `src/styles/`: global app styles
+- `src/app/`: 앱 shell과 최상위 상태 연결
+- `src/entities/`: TypeScript API 모델
+- `src/features/market-map/`: 시장맵과 섹터맵
+- `src/features/insights/`: 인사이트 패널
+- `src/features/news-feed/`: 뉴스/공시 바
+- `src/features/stock-overview/`: 종목 Overview, KPI, 차트
+- `src/services/`: API 클라이언트
+- `src/shared/`: 포맷터와 선택 상태 유틸
+- `src/styles/`: 전역 앱 스타일과 라이트/다크 테마
 
-## Migration Note
+## 마이그레이션 메모
 
-Do not import from `legacy/static-prototype/`.
-That prototype is preserved only for visual and interaction reference.
+`legacy/static-prototype/`는 참고용입니다. 새 React 앱에서 import하지 않습니다.

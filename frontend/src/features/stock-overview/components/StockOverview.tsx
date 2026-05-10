@@ -11,11 +11,7 @@ interface StockOverviewProps {
 
 export function StockOverview({ overview, period, onPeriodChange }: StockOverviewProps) {
   if (!overview) {
-    return (
-      <section className="stock-overview" aria-label="Stock Overview">
-        <div className="empty-state">Select a stock to open its Overview.</div>
-      </section>
-    );
+    return null;
   }
 
   return (

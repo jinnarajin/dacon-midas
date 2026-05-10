@@ -21,6 +21,7 @@ import {
 
 export function App() {
   const [selection, setSelection] = useState<SelectionState>(initialSelectionState);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [market, setMarket] = useState<MarketSummaryResponse | null>(null);
   const [sector, setSector] = useState<SectorResponse | null>(null);
   const [stock, setStock] = useState<StockOverviewResponse | null>(null);
@@ -87,13 +88,23 @@ export function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-theme={theme}>
       <header className="app-header">
         <div>
           <p className="eyebrow">Market Cloud</p>
-          <h1>Market Intelligence Dashboard</h1>
+          <h1>마켓 인텔리전스 대시보드</h1>
         </div>
-        <div className="status-pill">{market?.as_of ?? "Loading"}</div>
+        <div className="header-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
+            aria-label="테마 전환"
+          >
+            {theme === "light" ? "Dark" : "Light"}
+          </button>
+          <div className="status-pill">{market?.as_of ?? "Loading"}</div>
+        </div>
       </header>
 
       {error ? <div className="error-banner">{error}</div> : null}

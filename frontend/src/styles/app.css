@@ -5,6 +5,36 @@
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+.app-shell {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-muted: #f6f8f7;
+  --border: #dde5e1;
+  --border-strong: #cfd8d3;
+  --text: #172026;
+  --muted: #5b6b66;
+  --accent: #1f6f61;
+  --accent-strong: #1f8f5f;
+  --danger: #c94c4c;
+  --watch: #d89c2b;
+  --shadow: 0 12px 30px rgba(23, 32, 38, 0.08);
+}
+
+.app-shell[data-theme="dark"] {
+  --bg: #101615;
+  --surface: #17201e;
+  --surface-muted: #1f2a27;
+  --border: #2c3a36;
+  --border-strong: #40524d;
+  --text: #edf4f1;
+  --muted: #9aa9a4;
+  --accent: #5fc6a7;
+  --accent-strong: #75d8b8;
+  --danger: #ef7f72;
+  --watch: #e5b95a;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -20,8 +50,11 @@ button {
 }
 
 .app-shell {
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
   padding: 24px;
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .app-header,
@@ -47,7 +80,7 @@ button {
 }
 
 .eyebrow {
-  color: #5b6b66;
+  color: var(--muted);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0;
@@ -55,13 +88,20 @@ button {
   text-transform: uppercase;
 }
 
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
 .status-pill,
+.theme-toggle,
 .ghost-button,
 .segmented button {
-  border: 1px solid #cfd8d3;
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #ffffff;
-  color: #27342f;
+  background: var(--surface);
+  color: var(--text);
 }
 
 .status-pill {
@@ -77,6 +117,11 @@ button {
   padding: 12px;
 }
 
+.app-shell[data-theme="dark"] .error-banner {
+  background: #3a201d;
+  border-color: #6f3931;
+}
+
 .dashboard-grid {
   display: grid;
   gap: 16px;
@@ -89,10 +134,11 @@ button {
 .insight-panel,
 .stock-overview,
 .news-dock {
-  background: #ffffff;
-  border: 1px solid #dde5e1;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 18px;
+  box-shadow: var(--shadow);
 }
 
 .compact {
@@ -119,8 +165,8 @@ button {
 
 .segmented button.active,
 .period-tabs button.active {
-  background: #1f6f61;
-  border-color: #1f6f61;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #ffffff;
 }
 
@@ -133,7 +179,7 @@ button {
 }
 
 .map-legend {
-  color: #5b6b66;
+  color: var(--muted);
   font-size: 13px;
   margin-bottom: 10px;
 }
@@ -147,19 +193,19 @@ button {
 }
 
 .dot.up {
-  background: #1f8f5f;
+  background: var(--accent-strong);
 }
 
 .dot.down {
-  background: #c94c4c;
+  background: var(--danger);
 }
 
 .dot.watch {
-  background: #d89c2b;
+  background: var(--watch);
 }
 
 .summary-strip {
-  background: #f6f8f7;
+  background: var(--surface-muted);
   border-radius: 8px;
   margin-bottom: 12px;
   padding: 10px;
@@ -215,10 +261,10 @@ button {
 
 .empty-state {
   align-items: center;
-  background: #f6f8f7;
-  border: 1px dashed #bfcbc5;
+  background: var(--surface-muted);
+  border: 1px dashed var(--border-strong);
   border-radius: 8px;
-  color: #5b6b66;
+  color: var(--muted);
   display: flex;
   justify-content: center;
   min-height: 96px;
@@ -240,13 +286,13 @@ button {
 }
 
 .insight-row {
-  border-top: 1px solid #e6ece9;
+  border-top: 1px solid var(--border);
   padding-top: 10px;
 }
 
 .insight-row span,
 .kpi span {
-  color: #5b6b66;
+  color: var(--muted);
   display: block;
   font-size: 12px;
   margin-bottom: 4px;
@@ -257,7 +303,7 @@ button {
 }
 
 .keyword-list span {
-  background: #eef4f1;
+  background: var(--surface-muted);
   border-radius: 999px;
   padding: 5px 9px;
 }
@@ -284,7 +330,7 @@ button {
 }
 
 .kpi {
-  background: #f6f8f7;
+  background: var(--surface-muted);
   border-radius: 8px;
   padding: 12px;
 }
@@ -294,15 +340,15 @@ button {
 }
 
 .kpi.positive strong {
-  color: #1f8f5f;
+  color: var(--accent-strong);
 }
 
 .kpi.negative strong {
-  color: #c94c4c;
+  color: var(--danger);
 }
 
 .chart-panel {
-  border-top: 1px solid #e6ece9;
+  border-top: 1px solid var(--border);
   padding-top: 14px;
 }
 
@@ -312,9 +358,10 @@ button {
 }
 
 .period-tabs button {
-  border: 1px solid #cfd8d3;
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--surface);
+  color: var(--text);
 }
 
 .line-chart {
@@ -326,7 +373,7 @@ button {
 
 .line-chart polyline {
   fill: none;
-  stroke: #1f6f61;
+  stroke: var(--accent);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 4;
@@ -348,7 +395,7 @@ button {
 }
 
 .chart-caption {
-  color: #5b6b66;
+  color: var(--muted);
   margin: 0;
 }
 
@@ -366,14 +413,14 @@ button {
 }
 
 .news-item {
-  background: #f6f8f7;
+  background: var(--surface-muted);
   border-radius: 8px;
   flex: 0 0 320px;
   padding: 12px;
 }
 
 .news-item span {
-  color: #1f6f61;
+  color: var(--accent);
   display: block;
   font-size: 12px;
   font-weight: 800;
@@ -397,6 +444,11 @@ button {
   .chart-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .header-actions {
+    align-items: stretch;
+    width: 100%;
   }
 
   .dashboard-grid,
