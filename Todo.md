@@ -12,13 +12,13 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 - [x] 개발 산출물과 로그를 `dev-artifacts/`로 분리한다.
 - [x] 신규 구조 기준 `PROJECT_STRUCTURE.md`를 정리한다.
 - [x] 정크 코드 감사 내용을 `docs/junk-audit.md`에 기록한다.
-- [x] 깨진 인코딩 문서의 원본 또는 정상 텍스트를 확보한다. 기준 문서: `docs/source-text-inventory.md`
-- [ ] `skills/*.md` 문서의 깨진 한글을 복구하거나 새 규칙 문서로 재작성한다.
+- [ ] 깨진 인코딩 문서의 원본 또는 정상 텍스트를 확보한다.
+- [ ] `skills/*.md` 문서의 깨진 한글을 복구하여 작성한다.
 
 ## 1. 계약 우선 설계
 
-- [x] `shared/contracts/market.md`에 시장 요약 응답 필드를 확정한다.
-- [ ] `shared/contracts/sector.md`에 섹터 상세 응답 필드를 확정한다.
+- [ ] `shared/contracts/market.md`에 시장 요약 응답 필드를 확정한다.
+- [x] `shared/contracts/sector.md`에 섹터 상세 응답 필드를 확정한다.
 - [ ] `shared/contracts/stock.md`에 종목 Overview 응답 필드를 확정한다.
 - [ ] `shared/contracts/news.md`에 뉴스/공시 공통 필드를 확정한다.
 - [ ] `shared/contracts/api-contract.md`에 MVP 엔드포인트와 예시 JSON을 추가한다.
