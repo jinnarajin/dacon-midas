@@ -200,9 +200,31 @@ button {
   background: #6f7b77;
 }
 
+.map-tile.watch {
+  background: #a66d1f;
+}
+
+.map-tile.calm {
+  background: #3977a3;
+}
+
 .map-tile span {
   font-size: 24px;
   font-weight: 800;
+}
+
+.empty-state {
+  align-items: center;
+  background: #f6f8f7;
+  border: 1px dashed #bfcbc5;
+  border-radius: 8px;
+  color: #5b6b66;
+  display: flex;
+  justify-content: center;
+  min-height: 96px;
+  padding: 16px;
+  text-align: center;
+  width: 100%;
 }
 
 .headline {
@@ -308,6 +330,21 @@ button {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 4;
+}
+
+.volume-bars {
+  align-items: end;
+  display: flex;
+  gap: 6px;
+  height: 72px;
+  margin: 8px 0 4px;
+}
+
+.volume-bars span {
+  background: #9bb6ad;
+  border-radius: 4px 4px 0 0;
+  flex: 1;
+  min-width: 8px;
 }
 
 .chart-caption {

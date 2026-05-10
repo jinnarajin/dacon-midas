@@ -18,7 +18,12 @@ interface MarketMapProps {
   onSelectStock: (stockCode: string) => void;
 }
 
-function changeClass(value: number): string {
+function toneClass(value: number, metric: ColorMetric): string {
+  if (metric === "volatility") {
+    if (value >= 1.7) return "watch";
+    if (value >= 1.2) return "neutral";
+    return "calm";
+  }
   if (value > 0) return "positive";
   if (value < 0) return "negative";
   return "neutral";
@@ -40,6 +45,27 @@ function colorValue(tile: SectorTile | StockTile, metric: ColorMetric): number {
     : tile.volatility;
 }
 
+function colorLabel(metric: ColorMetric): string {
+  return metric === "change_rate" ? "Change" : "Volatility";
+}
+
+function sizeLabel(metric: MapMetric): string {
+  return metric === "market_cap" ? "Market cap" : "Trading value";
+}
+
+function displayColorValue(tile: SectorTile | StockTile, metric: ColorMetric): string {
+  const value = colorValue(tile, metric);
+  return metric === "change_rate" ? formatPercent(value) : value.toFixed(2);
+}
+
+function displaySizeValue(tile: SectorTile | StockTile, metric: MapMetric): string {
+  const value =
+    "sector_id" in tile
+      ? sectorSize(tile, metric)
+      : stockSize(tile, metric);
+  return formatKrw(value);
+}
+
 export function MarketMap({
   level,
   market,
@@ -56,6 +82,7 @@ export function MarketMap({
   const stockTiles = sector?.stock_tiles ?? [];
   const maxSectorSize = Math.max(...sectorTiles.map((tile) => sectorSize(tile, mapMetric)), 1);
   const maxStockSize = Math.max(...stockTiles.map((tile) => stockSize(tile, mapMetric)), 1);
+  const activeTiles = level === "market" ? sectorTiles : stockTiles;
 
   return (
     <section className="map-panel" aria-label="Market map">
@@ -83,13 +110,17 @@ export function MarketMap({
         <span>{formatPercent(market?.summary.rising_stock_ratio)} rising</span>
         <span>{formatPercent(market?.summary.average_change_rate)} avg change</span>
         <span>{formatKrw(market?.summary.total_trading_value)} traded</span>
+        <span>Size: {sizeLabel(mapMetric)}</span>
+        <span>Color: {colorLabel(colorMetric)}</span>
       </div>
 
       <div className="tile-grid">
-        {level === "market"
+        {activeTiles.length === 0 ? (
+          <div className="empty-state">No map data is available for the current selection.</div>
+        ) : level === "market"
           ? sectorTiles.map((tile) => {
               const basis = sectorSize(tile, mapMetric) / maxSectorSize;
-              const tone = changeClass(colorValue(tile, colorMetric));
+              const tone = toneClass(colorValue(tile, colorMetric), colorMetric);
               return (
                 <button
                   className={`map-tile ${tone}`}
@@ -99,14 +130,14 @@ export function MarketMap({
                   onClick={() => onSelectSector(tile.sector_id)}
                 >
                   <strong>{tile.sector_name}</strong>
-                  <span>{formatPercent(tile.average_change_rate)}</span>
-                  <small>{formatKrw(tile.total_trading_value)}</small>
+                  <span>{displayColorValue(tile, colorMetric)}</span>
+                  <small>{sizeLabel(mapMetric)} {displaySizeValue(tile, mapMetric)}</small>
                 </button>
               );
             })
           : stockTiles.map((tile) => {
               const basis = stockSize(tile, mapMetric) / maxStockSize;
-              const tone = changeClass(colorValue(tile, colorMetric));
+              const tone = toneClass(colorValue(tile, colorMetric), colorMetric);
               return (
                 <button
                   className={`map-tile ${tone}`}
@@ -116,8 +147,8 @@ export function MarketMap({
                   onClick={() => onSelectStock(tile.stock_code)}
                 >
                   <strong>{tile.stock_name}</strong>
-                  <span>{formatPercent(tile.change_rate)}</span>
-                  <small>{formatKrw(tile.trading_value)}</small>
+                  <span>{displayColorValue(tile, colorMetric)}</span>
+                  <small>{sizeLabel(mapMetric)} {displaySizeValue(tile, mapMetric)}</small>
                 </button>
               );
             })}

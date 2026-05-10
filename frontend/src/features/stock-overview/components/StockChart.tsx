@@ -21,8 +21,24 @@ function points(series: PricePoint[]): string {
     .join(" ");
 }
 
+function periodLimit(period: ChartPeriod): number {
+  switch (period) {
+    case "1D":
+      return 1;
+    case "1W":
+      return 5;
+    case "1M":
+      return 22;
+    case "3M":
+      return 66;
+    case "1Y":
+      return 252;
+  }
+}
+
 export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
-  const latest = chart.price_series[chart.price_series.length - 1];
+  const visibleSeries = chart.price_series.slice(-periodLimit(period));
+  const latest = visibleSeries[visibleSeries.length - 1];
 
   return (
     <div className="chart-panel">
@@ -41,12 +57,30 @@ export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
           ))}
         </div>
       </div>
-      <svg className="line-chart" viewBox="0 0 100 100" role="img" aria-label="Stock price chart">
-        <polyline points={points(chart.price_series)} />
-      </svg>
-      <p className="chart-caption">
-        Latest close {latest ? formatKrw(latest.close) : "-"}
-      </p>
+      {visibleSeries.length > 0 ? (
+        <>
+          <svg className="line-chart" viewBox="0 0 100 100" role="img" aria-label="Stock price chart">
+            <polyline points={points(visibleSeries)} />
+          </svg>
+          <div className="volume-bars" aria-label="Volume bars">
+            {visibleSeries.map((point) => {
+              const maxVolume = Math.max(...visibleSeries.map((item) => item.volume), 1);
+              return (
+                <span
+                  key={point.date}
+                  style={{ height: `${Math.max(12, (point.volume / maxVolume) * 64)}px` }}
+                  title={`${point.date} volume ${point.volume}`}
+                />
+              );
+            })}
+          </div>
+          <p className="chart-caption">
+            {period} close {latest ? formatKrw(latest.close) : "-"}
+          </p>
+        </>
+      ) : (
+        <div className="empty-state">No chart data is available for this period.</div>
+      )}
     </div>
   );
 }

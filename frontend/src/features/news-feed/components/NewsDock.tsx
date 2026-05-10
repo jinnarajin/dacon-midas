@@ -17,7 +17,7 @@ export function NewsDock({ news }: NewsDockProps) {
             </article>
           ))
         ) : (
-          <p>{news?.empty_state?.message ?? "Loading related news."}</p>
+          <div className="empty-state">{news?.empty_state?.message ?? "Loading related news."}</div>
         )}
       </div>
     </section>
