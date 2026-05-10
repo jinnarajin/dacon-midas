@@ -17,12 +17,12 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 ## 1. 계약 우선 설계
 
-- [ ] `shared/contracts/market.md`에 시장 요약 응답 필드를 확정한다.
+- [x] `shared/contracts/market.md`에 시장 요약 응답 필드를 확정한다.
 - [x] `shared/contracts/sector.md`에 섹터 상세 응답 필드를 확정한다.
-- [ ] `shared/contracts/stock.md`에 종목 Overview 응답 필드를 확정한다.
-- [ ] `shared/contracts/news.md`에 뉴스/공시 공통 필드를 확정한다.
-- [ ] `shared/contracts/api-contract.md`에 MVP 엔드포인트와 예시 JSON을 추가한다.
-- [ ] 프론트와 백엔드가 공유할 용어를 `shared/contracts/terms.md`에 정리한다.
+- [x] `shared/contracts/stock.md`에 종목 Overview 응답 필드를 확정한다.
+- [x] `shared/contracts/news.md`에 뉴스/공시 공통 필드를 확정한다.
+- [x] `shared/contracts/api-contract.md`에 MVP 엔드포인트와 예시 JSON을 추가한다.
+- [x] 프론트와 백엔드가 공유할 용어를 `shared/contracts/terms.md`에 정리한다.
 
 ## 2. 데이터 모델 설계
 
@@ -100,6 +100,6 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 ## 당장 다음 작업
 
-- [ ] `shared/contracts/api-contract.md`에 MVP 응답 예시 JSON을 먼저 작성한다.
+- [x] `shared/contracts/api-contract.md`에 MVP 응답 예시 JSON을 먼저 작성한다.
 - [ ] `data/samples/`에 계약에 맞는 샘플 데이터를 만든다.
 - [ ] mock FastAPI 라우터를 붙여 프론트가 의존할 API 표면을 고정한다.
