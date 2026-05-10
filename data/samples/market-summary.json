@@ -1,0 +1,84 @@
+{
+  "selection": {
+    "level": "market",
+    "market": "KR"
+  },
+  "as_of": "2026-05-10 15:30:00",
+  "summary": {
+    "market_name": "Korea Stock Market",
+    "total_stock_count": 2400,
+    "rising_stock_count": 1320,
+    "falling_stock_count": 910,
+    "flat_stock_count": 170,
+    "rising_stock_ratio": 55.0,
+    "average_change_rate": 0.74,
+    "total_trading_value": 14230000000000,
+    "dominant_sector_id": "semiconductor",
+    "risk_level": "normal"
+  },
+  "sector_tiles": [
+    {
+      "sector_id": "semiconductor",
+      "sector_name": "Semiconductor",
+      "industry_group": "Information Technology",
+      "stock_count": 42,
+      "rising_stock_count": 30,
+      "rising_stock_ratio": 71.43,
+      "average_change_rate": 2.14,
+      "total_market_cap": 682000000000000,
+      "total_trading_value": 1180000000000,
+      "volume_growth_rate": 84.2,
+      "volatility": 1.36,
+      "has_disclosure": true,
+      "keywords": ["HBM", "AI server"]
+    },
+    {
+      "sector_id": "battery",
+      "sector_name": "Battery",
+      "industry_group": "Materials",
+      "stock_count": 35,
+      "rising_stock_count": 11,
+      "rising_stock_ratio": 31.43,
+      "average_change_rate": -1.38,
+      "total_market_cap": 326000000000000,
+      "total_trading_value": 620000000000,
+      "volume_growth_rate": 22.7,
+      "volatility": 1.82,
+      "has_disclosure": false,
+      "keywords": ["EV", "lithium"]
+    }
+  ],
+  "leading_sectors": [
+    {
+      "sector_id": "semiconductor",
+      "sector_name": "Semiconductor",
+      "rank": 1,
+      "basis": "trading_value",
+      "value": 1180000000000
+    }
+  ],
+  "risk_flags": [
+    {
+      "code": "high_volatility",
+      "level": "watch",
+      "message": "Some high-volume sectors show elevated volatility."
+    }
+  ],
+  "insight": {
+    "headline": "Market strength is concentrated in leading technology sectors.",
+    "rows": [
+      {
+        "label": "Breadth",
+        "value": "55.0% of tracked stocks are rising.",
+        "basis": "rising_stock_ratio"
+      },
+      {
+        "label": "Leadership",
+        "value": "Semiconductor leads by trading value.",
+        "basis": "dominant_sector_id"
+      }
+    ],
+    "keywords": ["technology", "trading value", "breadth"]
+  },
+  "related_news_ids": ["news-20260510-001", "news-20260510-002"]
+}

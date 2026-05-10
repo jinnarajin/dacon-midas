@@ -35,7 +35,7 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 ## 3. Mock 기반 백엔드
 
-- [ ] `data/samples/`에 시장, 섹터, 종목, 뉴스 샘플 JSON을 만든다.
+- [x] `data/samples/`에 시장, 섹터, 종목, 뉴스 샘플 JSON을 만든다.
 - [ ] `backend/app/repositories/cache_repository.py` 또는 sample repository 역할을 정한다.
 - [ ] `GET /api/market/summary` mock 응답을 만든다.
 - [ ] `GET /api/sectors/{sectorId}` mock 응답을 만든다.
@@ -101,5 +101,5 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 ## 당장 다음 작업
 
 - [x] `shared/contracts/api-contract.md`에 MVP 응답 예시 JSON을 먼저 작성한다.
-- [ ] `data/samples/`에 계약에 맞는 샘플 데이터를 만든다.
+- [x] `data/samples/`에 계약에 맞는 샘플 데이터를 만든다.
 - [ ] mock FastAPI 라우터를 붙여 프론트가 의존할 API 표면을 고정한다.

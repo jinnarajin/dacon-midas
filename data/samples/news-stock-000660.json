@@ -1,0 +1,42 @@
+{
+  "selection": {
+    "level": "stock",
+    "market": "KR",
+    "sector_id": "semiconductor",
+    "stock_code": "000660"
+  },
+  "as_of": "2026-05-10 15:30:00",
+  "items": [
+    {
+      "id": "news-20260510-021",
+      "item_type": "news",
+      "title": "Memory stocks rise on AI server demand expectations",
+      "source": "Example News",
+      "published_at": "2026-05-10 10:07:00",
+      "url": "https://example.com/news/20260510-021",
+      "summary": "Semiconductor names moved higher as investors focused on AI server demand.",
+      "related_market": "KR",
+      "related_sector_ids": ["semiconductor"],
+      "related_stock_codes": ["000660"],
+      "tags": ["HBM", "AI server"],
+      "priority": 1,
+      "is_direct_match": true
+    },
+    {
+      "id": "disclosure-20260510-005930-001",
+      "item_type": "disclosure",
+      "title": "Samsung Electronics facility investment disclosure",
+      "source": "KIND",
+      "published_at": "2026-05-10 09:42:00",
+      "url": "https://example.com/disclosure/20260510-005930-001",
+      "summary": null,
+      "related_market": "KR",
+      "related_sector_ids": ["semiconductor"],
+      "related_stock_codes": ["005930"],
+      "tags": ["disclosure", "investment"],
+      "priority": 2,
+      "is_direct_match": false
+    }
+  ],
+  "empty_state": null
+}

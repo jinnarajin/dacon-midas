@@ -1,0 +1,115 @@
+{
+  "selection": {
+    "level": "sector",
+    "market": "KR",
+    "sector_id": "semiconductor"
+  },
+  "as_of": "2026-05-10 15:30:00",
+  "summary": {
+    "sector_id": "semiconductor",
+    "sector_name": "Semiconductor",
+    "industry_group": "Information Technology",
+    "stock_count": 42,
+    "rising_stock_count": 30,
+    "falling_stock_count": 10,
+    "flat_stock_count": 2,
+    "rising_stock_ratio": 71.43,
+    "average_change_rate": 2.14,
+    "market_average_change_rate": 0.74,
+    "excess_return": 1.4,
+    "total_market_cap": 682000000000000,
+    "total_trading_value": 1180000000000,
+    "volume_growth_rate": 84.2,
+    "volatility": 1.36,
+    "risk_level": "watch",
+    "keywords": ["HBM", "AI server", "memory"]
+  },
+  "stock_tiles": [
+    {
+      "stock_code": "000660",
+      "stock_name": "SK hynix",
+      "market": "KOSPI",
+      "industry": "Memory",
+      "current_price": 189400,
+      "previous_close": 181900,
+      "change_rate": 4.12,
+      "excess_return": 1.98,
+      "volume": 650000,
+      "average_volume": 310000,
+      "volume_growth_rate": 109.68,
+      "trading_value": 123110000000,
+      "market_cap": 137800000000000,
+      "volatility": 1.88,
+      "has_disclosure": false,
+      "keywords": ["HBM", "memory"]
+    },
+    {
+      "stock_code": "005930",
+      "stock_name": "Samsung Electronics",
+      "market": "KOSPI",
+      "industry": "Memory",
+      "current_price": 81200,
+      "previous_close": 79500,
+      "change_rate": 2.14,
+      "excess_return": 0.0,
+      "volume": 1880000,
+      "average_volume": 1210000,
+      "volume_growth_rate": 55.37,
+      "trading_value": 152656000000,
+      "market_cap": 484000000000000,
+      "volatility": 1.28,
+      "has_disclosure": true,
+      "keywords": ["AI server", "memory"]
+    }
+  ],
+  "rankings": {
+    "top_gainers": [
+      {
+        "stock_code": "000660",
+        "stock_name": "SK hynix",
+        "rank": 1,
+        "change_rate": 4.12
+      }
+    ],
+    "top_decliners": [
+      {
+        "stock_code": "042700",
+        "stock_name": "Hanmi Semiconductor",
+        "rank": 1,
+        "change_rate": -1.25
+      }
+    ],
+    "trading_value_leaders": [
+      {
+        "stock_code": "005930",
+        "stock_name": "Samsung Electronics",
+        "rank": 1,
+        "trading_value": 152656000000
+      }
+    ]
+  },
+  "risk_flags": [
+    {
+      "code": "concentrated_leadership",
+      "level": "watch",
+      "message": "Sector movement is concentrated in a small number of large stocks."
+    }
+  ],
+  "insight": {
+    "headline": "Semiconductor is outperforming the broader market with strong trading activity.",
+    "rows": [
+      {
+        "label": "Sector strength",
+        "value": "The sector average is 1.40 percentage points above the market average.",
+        "basis": "excess_return"
+      },
+      {
+        "label": "Participation",
+        "value": "71.43% of tracked semiconductor stocks are rising.",
+        "basis": "rising_stock_ratio"
+      }
+    ],
+    "keywords": ["HBM", "AI server", "trading activity"]
+  },
+  "related_news_ids": ["news-20260510-011", "news-20260510-012"]
+}

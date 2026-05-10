@@ -1,0 +1,112 @@
+{
+  "selection": {
+    "level": "stock",
+    "market": "KR",
+    "sector_id": "semiconductor",
+    "stock_code": "000660"
+  },
+  "as_of": "2026-05-10 15:30:00",
+  "identity": {
+    "stock_code": "000660",
+    "stock_name": "SK hynix",
+    "market": "KOSPI",
+    "sector_id": "semiconductor",
+    "sector_name": "Semiconductor",
+    "industry": "Memory"
+  },
+  "quote": {
+    "current_price": 189400,
+    "previous_close": 181900,
+    "change": 7500,
+    "change_rate": 4.12,
+    "volume": 650000,
+    "average_volume": 310000,
+    "volume_growth_rate": 109.68,
+    "trading_value": 123110000000,
+    "market_cap": 137800000000000,
+    "volatility": 1.88,
+    "has_disclosure": false
+  },
+  "kpis": [
+    {
+      "key": "change_rate",
+      "label": "Change rate",
+      "value": 4.12,
+      "unit": "percent",
+      "status": "positive"
+    },
+    {
+      "key": "trading_value",
+      "label": "Trading value",
+      "value": 123110000000,
+      "unit": "krw",
+      "status": "neutral"
+    }
+  ],
+  "sector_comparison": {
+    "sector_average_change_rate": 2.14,
+    "excess_return": 1.98,
+    "sector_average_volume_growth_rate": 84.2,
+    "volume_growth_gap": 25.48,
+    "rank_in_sector_by_change_rate": 2,
+    "rank_in_sector_by_trading_value": 1,
+    "sector_stock_count": 42
+  },
+  "chart": {
+    "default_period": "1M",
+    "available_periods": ["1D", "1W", "1M", "3M", "1Y"],
+    "price_series": [
+      {
+        "date": "2026-05-08",
+        "open": 181000,
+        "high": 184500,
+        "low": 180000,
+        "close": 181900,
+        "volume": 310000
+      },
+      {
+        "date": "2026-05-10",
+        "open": 183000,
+        "high": 190000,
+        "low": 181500,
+        "close": 189400,
+        "volume": 650000
+      }
+    ],
+    "volume_series": [
+      {
+        "date": "2026-05-08",
+        "volume": 310000
+      },
+      {
+        "date": "2026-05-10",
+        "volume": 650000
+      }
+    ]
+  },
+  "risk_flags": [
+    {
+      "code": "high_volume_growth",
+      "level": "info",
+      "message": "Trading volume is above the recent average."
+    }
+  ],
+  "insight": {
+    "headline": "SK hynix is outperforming its sector with elevated trading activity.",
+    "rows": [
+      {
+        "label": "Sector comparison",
+        "value": "The stock is 1.98 percentage points above the sector average.",
+        "basis": "excess_return"
+      },
+      {
+        "label": "Trading activity",
+        "value": "Volume is 109.68% above the recent average.",
+        "basis": "volume_growth_rate"
+      }
+    ],
+    "keywords": ["HBM", "memory", "trading activity"]
+  },
+  "related_news_ids": ["news-20260510-021"],
+  "related_disclosure_ids": []
+}
