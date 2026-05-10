@@ -53,14 +53,14 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 ## 5. 프론트엔드 화면 이식
 
-- [ ] React/Vite/TypeScript 프로젝트 설정을 `frontend/`에 추가한다.
-- [ ] API 클라이언트 구조를 `frontend/src/services/marketApi.ts`에 만든다.
-- [ ] 선택 상태 모델을 `frontend/src/shared/state/selectionStore.ts`에 구현한다.
-- [ ] `MarketMap`에서 시장 > 섹터 > 종목 클릭 흐름을 만든다.
-- [ ] `InsightPanel`을 선택 레벨에 따라 갱신되게 만든다.
-- [ ] `NewsDock`을 선택 상태별 뉴스/공시로 갱신되게 만든다.
-- [ ] `StockOverview`에 KPI, 차트, 관련 뉴스/공시 영역을 만든다.
-- [ ] 기존 `legacy/static-prototype/`에서 필요한 시각적 방향만 선별 반영한다.
+- [x] React/Vite/TypeScript 프로젝트 설정을 `frontend/`에 추가한다.
+- [x] API 클라이언트 구조를 `frontend/src/services/marketApi.ts`에 만든다.
+- [x] 선택 상태 모델을 `frontend/src/shared/state/selectionStore.ts`에 구현한다.
+- [x] `MarketMap`에서 시장 > 섹터 > 종목 클릭 흐름을 만든다.
+- [x] `InsightPanel`을 선택 레벨에 따라 갱신되게 만든다.
+- [x] `NewsDock`을 선택 상태별 뉴스/공시로 갱신되게 만든다.
+- [x] `StockOverview`에 KPI, 차트, 관련 뉴스/공시 영역을 만든다.
+- [x] 기존 `legacy/static-prototype/`에서 필요한 시각적 방향만 선별 반영한다.
 
 ## 6. 시각화 구현
 

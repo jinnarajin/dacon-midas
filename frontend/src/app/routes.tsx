@@ -1,3 +1,8 @@
-// 라우트 정의 자리입니다.
-// MVP에서는 단일 대시보드 라우트를 우선 사용합니다.
-// 추후 관심종목, 리포트, 설정 페이지가 생기면 이곳에서 확장합니다.
+import { App } from "./App";
+
+export const routes = [
+  {
+    path: "/",
+    element: <App />
+  }
+];

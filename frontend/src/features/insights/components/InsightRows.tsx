@@ -1,2 +1,18 @@
-// 인사이트 세부 행 목록 자리입니다.
-// 지표 근거, 위험 신호, 관련 키워드를 짧은 문장으로 표시합니다.
+import type { InsightRow } from "../../../entities/market/model";
+
+interface InsightRowsProps {
+  rows: InsightRow[];
+}
+
+export function InsightRows({ rows }: InsightRowsProps) {
+  return (
+    <div className="insight-rows">
+      {rows.map((row) => (
+        <div className="insight-row" key={`${row.label}-${row.basis}`}>
+          <span>{row.label}</span>
+          <strong>{row.value}</strong>
+        </div>
+      ))}
+    </div>
+  );
+}

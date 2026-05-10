@@ -1,2 +1,27 @@
-// 오른쪽 인사이트 패널 컴포넌트 자리입니다.
-// 현재 선택 상태가 market, sector, stock 중 무엇인지에 따라 내용을 바꿉니다.
+import type { Insight } from "../../../entities/market/model";
+import { InsightRows } from "./InsightRows";
+
+interface InsightPanelProps {
+  scope: string;
+  insight: Insight | null;
+}
+
+export function InsightPanel({ scope, insight }: InsightPanelProps) {
+  return (
+    <aside className="insight-panel" aria-label="Insight panel">
+      <div className="panel-header compact">
+        <div>
+          <p className="eyebrow">{scope}</p>
+          <h2>Insight</h2>
+        </div>
+      </div>
+      <p className="headline">{insight?.headline ?? "Loading market context."}</p>
+      <InsightRows rows={insight?.rows ?? []} />
+      <div className="keyword-list">
+        {(insight?.keywords ?? []).map((keyword) => (
+          <span key={keyword}>{keyword}</span>
+        ))}
+      </div>
+    </aside>
+  );
+}

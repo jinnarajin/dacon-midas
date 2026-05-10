@@ -1,2 +1,25 @@
-// 하단 뉴스/공시 바 컴포넌트 자리입니다.
-// market 선택 시 전체 시장 뉴스, sector 선택 시 섹터 뉴스, stock 선택 시 종목 뉴스/공시를 표시합니다.
+import type { NewsResponse } from "../../../entities/news/model";
+
+interface NewsDockProps {
+  news: NewsResponse | null;
+}
+
+export function NewsDock({ news }: NewsDockProps) {
+  return (
+    <section className="news-dock" aria-label="News and disclosures">
+      <div className="news-track">
+        {(news?.items ?? []).length > 0 ? (
+          news!.items.map((item) => (
+            <article className="news-item" key={item.id}>
+              <span>{item.item_type}</span>
+              <strong>{item.title}</strong>
+              <small>{item.source}</small>
+            </article>
+          ))
+        ) : (
+          <p>{news?.empty_state?.message ?? "Loading related news."}</p>
+        )}
+      </div>
+    </section>
+  );
+}

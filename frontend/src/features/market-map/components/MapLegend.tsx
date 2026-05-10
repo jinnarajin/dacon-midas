@@ -1,2 +1,15 @@
-// 시장맵 범례 컴포넌트 자리입니다.
-// 상승, 하락, 위험/공시 강조 상태를 설명합니다.
+export function MapLegend() {
+  return (
+    <div className="map-legend" aria-label="Map legend">
+      <span>
+        <i className="dot up" /> Rising
+      </span>
+      <span>
+        <i className="dot down" /> Falling
+      </span>
+      <span>
+        <i className="dot watch" /> Watch
+      </span>
+    </div>
+  );
+}
