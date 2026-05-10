@@ -1,2 +1,10 @@
-# 섹터 도메인 서비스 자리입니다.
-# 섹터 평균 등락률, 거래대금 집중도, 주도 종목, 키워드 요약을 계산합니다.
+from backend.app.repositories.cache_repository import SampleRepository
+from backend.app.schemas.sector import SectorResponse
+
+
+class SectorService:
+    def __init__(self, repository: SampleRepository | None = None) -> None:
+        self.repository = repository or SampleRepository()
+
+    def get_sector(self, sector_id: str) -> SectorResponse:
+        return self.repository.get_sector(sector_id)

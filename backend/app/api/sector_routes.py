@@ -1,2 +1,11 @@
-# 섹터 API 라우터 자리입니다.
-# 예: 특정 섹터 요약, 섹터 내 종목 맵 데이터, 섹터 인사이트 응답.
+from fastapi import APIRouter
+
+from backend.app.domains.sector.service import SectorService
+from backend.app.schemas.sector import SectorResponse
+
+router = APIRouter(prefix="/api/sectors", tags=["sectors"])
+
+
+@router.get("/{sector_id}", response_model=SectorResponse)
+def get_sector(sector_id: str) -> SectorResponse:
+    return SectorService().get_sector(sector_id)

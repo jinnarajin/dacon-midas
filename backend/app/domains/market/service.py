@@ -1,2 +1,10 @@
-# 시장 도메인 서비스 자리입니다.
-# 전체 시장 요약, 주도 섹터, 상승 종목 비율, 시장 위험 신호를 계산합니다.
+from backend.app.repositories.cache_repository import SampleRepository
+from backend.app.schemas.market import MarketSummaryResponse
+
+
+class MarketService:
+    def __init__(self, repository: SampleRepository | None = None) -> None:
+        self.repository = repository or SampleRepository()
+
+    def get_summary(self) -> MarketSummaryResponse:
+        return self.repository.get_market_summary()

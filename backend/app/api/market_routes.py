@@ -1,2 +1,11 @@
-# 전체 시장 API 라우터 자리입니다.
-# 예: 시장 요약, 섹터별 맵 데이터, 시장 인사이트 응답.
+from fastapi import APIRouter
+
+from backend.app.domains.market.service import MarketService
+from backend.app.schemas.market import MarketSummaryResponse
+
+router = APIRouter(prefix="/api/market", tags=["market"])
+
+
+@router.get("/summary", response_model=MarketSummaryResponse)
+def get_market_summary() -> MarketSummaryResponse:
+    return MarketService().get_summary()

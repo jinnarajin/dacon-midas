@@ -36,20 +36,20 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 ## 3. Mock 기반 백엔드
 
 - [x] `data/samples/`에 시장, 섹터, 종목, 뉴스 샘플 JSON을 만든다.
-- [ ] `backend/app/repositories/cache_repository.py` 또는 sample repository 역할을 정한다.
-- [ ] `GET /api/market/summary` mock 응답을 만든다.
-- [ ] `GET /api/sectors/{sectorId}` mock 응답을 만든다.
-- [ ] `GET /api/stocks/{stockCode}/overview` mock 응답을 만든다.
-- [ ] `GET /api/news` mock 응답을 만든다.
-- [ ] FastAPI 실행 진입점과 라우터 등록을 완료한다.
+- [x] `backend/app/repositories/cache_repository.py` 또는 sample repository 역할을 정한다.
+- [x] `GET /api/market/summary` mock 응답을 만든다.
+- [x] `GET /api/sectors/{sectorId}` mock 응답을 만든다.
+- [x] `GET /api/stocks/{stockCode}/overview` mock 응답을 만든다.
+- [x] `GET /api/news` mock 응답을 만든다.
+- [x] FastAPI 실행 진입점과 라우터 등록을 완료한다.
 
 ## 4. 규칙 엔진 1차 연결
 
-- [ ] `skills/data_rules.md` 기준으로 필수 데이터와 결측 처리 규칙을 정리한다.
-- [ ] `backend/app/domains/rules/indicator_rules.py`에 핵심 지표 계산을 구현한다.
-- [ ] 등락률, 거래대금, 거래량 증가율, 섹터 평균 등락률 계산 테스트를 작성한다.
-- [ ] `backend/app/domains/rules/insight_rules.py`에 레벨별 인사이트 선택 규칙을 구현한다.
-- [ ] 투자 추천 표현을 막는 문구 정책을 인사이트 생성 단계에 반영한다.
+- [x] `skills/data_rules.md` 기준으로 필수 데이터와 결측 처리 규칙을 정리한다.
+- [x] `backend/app/domains/rules/indicator_rules.py`에 핵심 지표 계산을 구현한다.
+- [x] 등락률, 거래대금, 거래량 증가율, 섹터 평균 등락률 계산 테스트를 작성한다.
+- [x] `backend/app/domains/rules/insight_rules.py`에 레벨별 인사이트 선택 규칙을 구현한다.
+- [x] 투자 추천 표현을 막는 문구 정책을 인사이트 생성 단계에 반영한다.
 
 ## 5. 프론트엔드 화면 이식
 
@@ -102,4 +102,4 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 - [x] `shared/contracts/api-contract.md`에 MVP 응답 예시 JSON을 먼저 작성한다.
 - [x] `data/samples/`에 계약에 맞는 샘플 데이터를 만든다.
-- [ ] mock FastAPI 라우터를 붙여 프론트가 의존할 API 표면을 고정한다.
+- [x] mock FastAPI 라우터를 붙여 프론트가 의존할 API 표면을 고정한다.
