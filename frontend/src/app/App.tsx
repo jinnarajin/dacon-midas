@@ -70,10 +70,10 @@ export function App() {
 
   const insightScope =
     selection.selectedLevel === "stock"
-      ? stock?.identity.stock_name ?? "Stock"
+      ? stock?.identity.stock_name ?? "종목"
       : selection.selectedLevel === "sector"
-        ? sector?.summary.sector_name ?? "Sector"
-        : "Market";
+        ? sector?.summary.sector_name ?? "섹터"
+        : "시장";
 
   function updateMapMetric(metric: MapMetric) {
     setSelection((current) => ({ ...current, mapMetric: metric }));
@@ -101,9 +101,9 @@ export function App() {
             onClick={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
             aria-label="테마 전환"
           >
-            {theme === "light" ? "Dark" : "Light"}
+            {theme === "light" ? "다크 모드" : "라이트 모드"}
           </button>
-          <div className="status-pill">{market?.as_of ?? "Loading"}</div>
+          <div className="status-pill">{market?.as_of ?? "불러오는 중"}</div>
         </div>
       </header>
 

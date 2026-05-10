@@ -43,7 +43,7 @@ export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
   return (
     <div className="chart-panel">
       <div className="chart-header">
-        <strong>Price Flow</strong>
+        <strong>가격 흐름</strong>
         <div className="period-tabs">
           {chart.available_periods.map((item) => (
             <button
@@ -59,27 +59,27 @@ export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
       </div>
       {visibleSeries.length > 0 ? (
         <>
-          <svg className="line-chart" viewBox="0 0 100 100" role="img" aria-label="Stock price chart">
+          <svg className="line-chart" viewBox="0 0 100 100" role="img" aria-label="종목 가격 차트">
             <polyline points={points(visibleSeries)} />
           </svg>
-          <div className="volume-bars" aria-label="Volume bars">
+          <div className="volume-bars" aria-label="거래량 막대">
             {visibleSeries.map((point) => {
               const maxVolume = Math.max(...visibleSeries.map((item) => item.volume), 1);
               return (
                 <span
                   key={point.date}
                   style={{ height: `${Math.max(12, (point.volume / maxVolume) * 64)}px` }}
-                  title={`${point.date} volume ${point.volume}`}
+                  title={`${point.date} 거래량 ${point.volume}`}
                 />
               );
             })}
           </div>
           <p className="chart-caption">
-            {period} close {latest ? formatKrw(latest.close) : "-"}
+            {period} 종가 {latest ? formatKrw(latest.close) : "-"}
           </p>
         </>
       ) : (
-        <div className="empty-state">No chart data is available for this period.</div>
+        <div className="empty-state">선택한 기간의 차트 데이터가 없습니다.</div>
       )}
     </div>
   );

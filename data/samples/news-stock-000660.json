@@ -10,22 +10,22 @@
     {
       "id": "news-20260510-021",
       "item_type": "news",
-      "title": "Memory stocks rise on AI server demand expectations",
-      "source": "Example News",
+      "title": "AI 서버 수요 기대에 메모리 반도체주 강세",
+      "source": "샘플뉴스",
       "published_at": "2026-05-10 10:07:00",
       "url": "https://example.com/news/20260510-021",
-      "summary": "Semiconductor names moved higher as investors focused on AI server demand.",
+      "summary": "AI 서버 투자 확대 기대가 이어지며 메모리 반도체 관련주에 매수세가 유입됐습니다.",
       "related_market": "KR",
       "related_sector_ids": ["semiconductor"],
       "related_stock_codes": ["000660"],
-      "tags": ["HBM", "AI server"],
+      "tags": ["HBM", "AI서버"],
       "priority": 1,
       "is_direct_match": true
     },
     {
       "id": "disclosure-20260510-005930-001",
       "item_type": "disclosure",
-      "title": "Samsung Electronics facility investment disclosure",
+      "title": "삼성전자 신규 설비투자 관련 공시",
       "source": "KIND",
       "published_at": "2026-05-10 09:42:00",
       "url": "https://example.com/disclosure/20260510-005930-001",
@@ -33,7 +33,7 @@
       "related_market": "KR",
       "related_sector_ids": ["semiconductor"],
       "related_stock_codes": ["005930"],
-      "tags": ["disclosure", "investment"],
+      "tags": ["공시", "설비투자"],
       "priority": 2,
       "is_direct_match": false
     }

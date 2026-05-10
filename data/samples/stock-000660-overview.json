@@ -8,11 +8,11 @@
   "as_of": "2026-05-10 15:30:00",
   "identity": {
     "stock_code": "000660",
-    "stock_name": "SK hynix",
+    "stock_name": "SK하이닉스",
     "market": "KOSPI",
     "sector_id": "semiconductor",
-    "sector_name": "Semiconductor",
-    "industry": "Memory"
+    "sector_name": "반도체",
+    "industry": "메모리"
   },
   "quote": {
     "current_price": 189400,
@@ -30,14 +30,14 @@
   "kpis": [
     {
       "key": "change_rate",
-      "label": "Change rate",
+      "label": "등락률",
       "value": 4.12,
       "unit": "percent",
       "status": "positive"
     },
     {
       "key": "trading_value",
-      "label": "Trading value",
+      "label": "거래대금",
       "value": 123110000000,
       "unit": "krw",
       "status": "neutral"
@@ -92,20 +92,20 @@
     }
   ],
   "insight": {
-    "headline": "SK hynix is outperforming its sector with elevated trading activity.",
+    "headline": "SK하이닉스는 섹터 평균을 웃돌며 거래 활동이 높게 나타납니다.",
     "rows": [
       {
-        "label": "Sector comparison",
-        "value": "The stock is 1.98 percentage points above the sector average.",
+        "label": "섹터 대비",
+        "value": "종목 등락률이 섹터 평균보다 1.98%p 높습니다.",
         "basis": "excess_return"
       },
       {
-        "label": "Trading activity",
-        "value": "Volume is 109.68% above the recent average.",
+        "label": "거래 활동",
+        "value": "거래량이 최근 평균보다 109.68% 높습니다.",
         "basis": "volume_growth_rate"
       }
     ],
-    "keywords": ["HBM", "memory", "trading activity"]
+    "keywords": ["HBM", "메모리", "거래대금"]
   },
   "related_news_ids": ["news-20260510-021"],
   "related_disclosure_ids": []

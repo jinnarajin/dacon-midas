@@ -6,7 +6,7 @@ interface NewsDockProps {
 
 export function NewsDock({ news }: NewsDockProps) {
   return (
-    <section className="news-dock" aria-label="News and disclosures">
+    <section className="news-dock" aria-label="뉴스와 공시">
       <div className="news-track">
         {(news?.items ?? []).length > 0 ? (
           news!.items.map((item) => (
@@ -17,7 +17,7 @@ export function NewsDock({ news }: NewsDockProps) {
             </article>
           ))
         ) : (
-          <div className="empty-state">{news?.empty_state?.message ?? "Loading related news."}</div>
+          <div className="empty-state">{news?.empty_state?.message ?? "관련 뉴스와 공시를 불러오는 중입니다."}</div>
         )}
       </div>
     </section>

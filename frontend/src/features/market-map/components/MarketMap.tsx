@@ -46,11 +46,11 @@ function colorValue(tile: SectorTile | StockTile, metric: ColorMetric): number {
 }
 
 function colorLabel(metric: ColorMetric): string {
-  return metric === "change_rate" ? "Change" : "Volatility";
+  return metric === "change_rate" ? "등락률" : "변동성";
 }
 
 function sizeLabel(metric: MapMetric): string {
-  return metric === "market_cap" ? "Market cap" : "Trading value";
+  return metric === "market_cap" ? "시가총액" : "거래대금";
 }
 
 function displayColorValue(tile: SectorTile | StockTile, metric: ColorMetric): string {
@@ -85,15 +85,15 @@ export function MarketMap({
   const activeTiles = level === "market" ? sectorTiles : stockTiles;
 
   return (
-    <section className="map-panel" aria-label="Market map">
+    <section className="map-panel" aria-label="시장맵">
       <div className="panel-header">
         <div>
-          <p className="eyebrow">{level === "market" ? "Market" : "Sector"}</p>
-          <h2>{level === "market" ? "Sector Map" : `${sector?.summary.sector_name ?? ""} Stocks`}</h2>
+          <p className="eyebrow">{level === "market" ? "시장" : "섹터"}</p>
+          <h2>{level === "market" ? "섹터 맵" : `${sector?.summary.sector_name ?? ""} 종목`}</h2>
         </div>
         {level !== "market" ? (
           <button className="ghost-button" type="button" onClick={onSelectMarket}>
-            Back to market
+            전체 시장
           </button>
         ) : null}
       </div>
@@ -107,16 +107,16 @@ export function MarketMap({
       <MapLegend />
 
       <div className="summary-strip">
-        <span>{formatPercent(market?.summary.rising_stock_ratio)} rising</span>
-        <span>{formatPercent(market?.summary.average_change_rate)} avg change</span>
-        <span>{formatKrw(market?.summary.total_trading_value)} traded</span>
-        <span>Size: {sizeLabel(mapMetric)}</span>
-        <span>Color: {colorLabel(colorMetric)}</span>
+        <span>상승 비율 {formatPercent(market?.summary.rising_stock_ratio)}</span>
+        <span>평균 등락률 {formatPercent(market?.summary.average_change_rate)}</span>
+        <span>거래대금 {formatKrw(market?.summary.total_trading_value)}</span>
+        <span>크기: {sizeLabel(mapMetric)}</span>
+        <span>색상: {colorLabel(colorMetric)}</span>
       </div>
 
       <div className="tile-grid">
         {activeTiles.length === 0 ? (
-          <div className="empty-state">No map data is available for the current selection.</div>
+          <div className="empty-state">현재 선택 항목에 표시할 맵 데이터가 없습니다.</div>
         ) : level === "market"
           ? sectorTiles.map((tile) => {
               const basis = sectorSize(tile, mapMetric) / maxSectorSize;

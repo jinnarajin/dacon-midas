@@ -15,7 +15,7 @@ export function StockOverview({ overview, period, onPeriodChange }: StockOvervie
   }
 
   return (
-    <section className="stock-overview" aria-label="Stock Overview">
+    <section className="stock-overview" aria-label="종목 Overview">
       <div className="overview-header">
         <div>
           <p className="eyebrow">{overview.identity.sector_name}</p>

@@ -75,7 +75,7 @@ class SampleRepository:
         return {
             "sector_id": sector_id,
             "sector_name": sector_id.replace("-", " ").replace("_", " ").title(),
-            "industry_group": "Unclassified",
+            "industry_group": "미분류",
             "stock_count": 1,
             "rising_stock_count": 0,
             "rising_stock_ratio": 0.0,
@@ -85,30 +85,19 @@ class SampleRepository:
             "volume_growth_rate": 0.0,
             "volatility": 1.0,
             "has_disclosure": False,
-            "keywords": ["sample"]
+            "keywords": ["샘플"]
         }
 
     def _build_dummy_sector(self, sector_id: str) -> dict[str, Any]:
         tile = self._market_sector_tile(sector_id)
-        stock_code = f"D{abs(hash(sector_id)) % 100000:05d}"[:6]
-        stock = {
-            "stock_code": stock_code,
-            "stock_name": f"{tile['sector_name']} Sample",
-            "market": "KOSPI",
-            "industry": tile.get("industry_group") or tile["sector_name"],
-            "current_price": 50000,
-            "previous_close": 50000,
-            "change_rate": tile["average_change_rate"],
-            "excess_return": 0.0,
-            "volume": 100000,
-            "average_volume": 100000,
-            "volume_growth_rate": tile.get("volume_growth_rate"),
-            "trading_value": tile["total_trading_value"],
-            "market_cap": tile["total_market_cap"],
-            "volatility": tile["volatility"],
-            "has_disclosure": tile["has_disclosure"],
-            "keywords": tile["keywords"]
-        }
+        stock_tiles = self._dummy_stock_tiles(tile)
+        top_gainers = sorted(stock_tiles, key=lambda item: item["change_rate"], reverse=True)[:3]
+        top_decliners = sorted(stock_tiles, key=lambda item: item["change_rate"])[:3]
+        trading_value_leaders = sorted(
+            stock_tiles,
+            key=lambda item: item["trading_value"],
+            reverse=True,
+        )[:3]
         return {
             "selection": {"level": "sector", "market": "KR", "sector_id": sector_id},
             "as_of": "2026-05-10 15:30:00",
@@ -131,34 +120,81 @@ class SampleRepository:
                 "risk_level": "watch" if tile["volatility"] >= 1.7 else "normal",
                 "keywords": tile["keywords"]
             },
-            "stock_tiles": [stock],
+            "stock_tiles": stock_tiles,
             "rankings": {
-                "top_gainers": [{
-                    "stock_code": stock_code,
-                    "stock_name": stock["stock_name"],
-                    "rank": 1,
-                    "change_rate": stock["change_rate"]
-                }],
-                "top_decliners": [],
-                "trading_value_leaders": [{
-                    "stock_code": stock_code,
-                    "stock_name": stock["stock_name"],
-                    "rank": 1,
-                    "trading_value": stock["trading_value"]
-                }]
+                "top_gainers": [
+                    {
+                        "stock_code": stock["stock_code"],
+                        "stock_name": stock["stock_name"],
+                        "rank": index + 1,
+                        "change_rate": stock["change_rate"],
+                    }
+                    for index, stock in enumerate(top_gainers)
+                ],
+                "top_decliners": [
+                    {
+                        "stock_code": stock["stock_code"],
+                        "stock_name": stock["stock_name"],
+                        "rank": index + 1,
+                        "change_rate": stock["change_rate"],
+                    }
+                    for index, stock in enumerate(top_decliners)
+                ],
+                "trading_value_leaders": [
+                    {
+                        "stock_code": stock["stock_code"],
+                        "stock_name": stock["stock_name"],
+                        "rank": index + 1,
+                        "trading_value": stock["trading_value"],
+                    }
+                    for index, stock in enumerate(trading_value_leaders)
+                ]
             },
             "risk_flags": [],
             "insight": {
-                "headline": f"{tile['sector_name']} has sample sector data for exploration.",
+                "headline": f"{tile['sector_name']} 섹터는 샘플 데이터 기준으로 시장 흐름을 확인할 수 있습니다.",
                 "rows": [{
-                    "label": "Sample coverage",
-                    "value": "This sector uses generated placeholder data until a live source is connected.",
+                    "label": "샘플 범위",
+                    "value": "실시간 데이터 연결 전까지 생성된 더미 종목으로 섹터 흐름을 보여줍니다.",
                     "basis": "sample_fallback"
                 }],
                 "keywords": tile["keywords"]
             },
             "related_news_ids": []
         }
+
+    def _dummy_stock_tiles(self, tile: dict[str, Any]) -> list[dict[str, Any]]:
+        names = ["대장", "소재", "장비", "테크", "솔루션", "시스템", "정밀", "홀딩스"]
+        base_code = abs(hash(tile["sector_id"])) % 900000
+        average_change = float(tile["average_change_rate"])
+        total_value = int(tile["total_trading_value"])
+        total_cap = int(tile["total_market_cap"])
+        stocks = []
+        for index, suffix in enumerate(names):
+            current_price = 18000 + index * 7400
+            change_rate = round(average_change + (index - 3) * 0.42, 2)
+            previous_close = int(current_price / (1 + change_rate / 100)) if change_rate != -100 else current_price
+            volume = 80000 + index * 27000
+            average_volume = 70000 + index * 21000
+            stocks.append({
+                "stock_code": f"{(base_code + index) % 1000000:06d}",
+                "stock_name": f"{tile['sector_name']}{suffix}",
+                "market": "KOSPI" if index % 2 == 0 else "KOSDAQ",
+                "industry": tile.get("industry_group") or tile["sector_name"],
+                "current_price": current_price,
+                "previous_close": previous_close,
+                "change_rate": change_rate,
+                "excess_return": round(change_rate - average_change, 2),
+                "volume": volume,
+                "average_volume": average_volume,
+                "volume_growth_rate": round((volume - average_volume) / average_volume * 100, 2),
+                "trading_value": max(1, total_value // (index + 3)),
+                "market_cap": max(1, total_cap // (index + 2)),
+                "volatility": round(float(tile["volatility"]) + index * 0.08, 2),
+                "has_disclosure": bool(tile["has_disclosure"] and index == 0),
+                "keywords": tile["keywords"],
+            })
+        return stocks
 
     def _build_dummy_stock(self, stock_code: str) -> dict[str, Any]:
         sector = self._load_json("sector-semiconductor.json")
@@ -169,9 +205,9 @@ class SampleRepository:
         if stock is None:
             stock = {
                 "stock_code": stock_code,
-                "stock_name": f"Stock {stock_code}",
+                "stock_name": f"샘플종목 {stock_code}",
                 "market": "KOSPI",
-                "industry": "Sample",
+                "industry": "샘플",
                 "current_price": 50000,
                 "previous_close": 50000,
                 "change_rate": 0.0,
@@ -183,7 +219,7 @@ class SampleRepository:
                 "market_cap": 100000000000,
                 "volatility": 1.0,
                 "has_disclosure": False,
-                "keywords": ["sample"]
+                "keywords": ["샘플"]
             }
         change = stock["current_price"] - stock["previous_close"]
         return {
@@ -199,7 +235,7 @@ class SampleRepository:
                 "stock_name": stock["stock_name"],
                 "market": stock["market"],
                 "sector_id": "semiconductor",
-                "sector_name": "Semiconductor",
+                "sector_name": "반도체",
                 "industry": stock["industry"]
             },
             "quote": {
@@ -218,14 +254,14 @@ class SampleRepository:
             "kpis": [
                 {
                     "key": "change_rate",
-                    "label": "Change rate",
+                    "label": "등락률",
                     "value": stock["change_rate"],
                     "unit": "percent",
                     "status": "positive" if stock["change_rate"] > 0 else "neutral"
                 },
                 {
                     "key": "trading_value",
-                    "label": "Trading value",
+                    "label": "거래대금",
                     "value": stock["trading_value"],
                     "unit": "krw",
                     "status": "neutral"
@@ -268,10 +304,10 @@ class SampleRepository:
             },
             "risk_flags": [],
             "insight": {
-                "headline": f"{stock['stock_name']} has sample Overview data.",
+                "headline": f"{stock['stock_name']}은 샘플 Overview 데이터로 표시됩니다.",
                 "rows": [{
-                    "label": "Sample coverage",
-                    "value": "This stock uses generated placeholder data until a live source is connected.",
+                    "label": "샘플 범위",
+                    "value": "실시간 데이터 연결 전까지 생성된 더미 종목 데이터를 사용합니다.",
                     "basis": "sample_fallback"
                 }],
                 "keywords": stock["keywords"]
@@ -296,7 +332,7 @@ class SampleRepository:
             "as_of": "2026-05-10 15:30:00",
             "items": [],
             "empty_state": {
-                "message": "No directly related news or disclosures are available for the current selection.",
+                "message": "현재 선택 항목과 직접 연결된 뉴스나 공시가 없습니다.",
                 "reason": "no_items"
             }
         }
