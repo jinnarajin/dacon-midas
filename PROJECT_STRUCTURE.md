@@ -45,7 +45,7 @@ midas/
   scripts/                      # Developer and data validation scripts
 
   legacy/
-    static-prototype/           # Preserved old index.html/styles.css/app.js prototype
+    static-prototype/           # Preserved old index.html/styles.css/app.js prototype, reference-only
 
   dev-artifacts/
     playwright-mcp/             # Tool logs and captured development artifacts
@@ -59,7 +59,7 @@ midas/
 - shared/contracts owns the response shape before frontend/backend implementation.
 - repositories only fetch or store data; they do not create user-facing insights.
 - skills documents are the source of analysis rules, not UI copy.
-- legacy/static-prototype is reference-only and should not be imported by the new app.
+- legacy/static-prototype is reference-only and must not be imported by the React app.
 -->
 
 ## Recommended Build Order
