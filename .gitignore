@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build output
+dist/
+build/
+.next/
+coverage/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Runtime/cache data
+data/cache/*
+!data/cache/README.md
+data/raw/*
+!data/raw/README.md
+data/processed/*
+!data/processed/README.md
+
+# Tool artifacts
+dev-artifacts/*
+!dev-artifacts/README.md
+.playwright-mcp/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
