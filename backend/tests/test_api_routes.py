@@ -36,6 +36,15 @@ class ApiRouteTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertGreaterEqual(len(response.json()["items"]), 1)
 
+    def test_missing_sample_routes_return_fallback_payloads(self) -> None:
+        sector = self.client.get("/api/sectors/battery")
+        self.assertEqual(sector.status_code, 200)
+        self.assertEqual(sector.json()["selection"]["sector_id"], "battery")
+
+        stock = self.client.get("/api/stocks/005930/overview")
+        self.assertEqual(stock.status_code, 200)
+        self.assertEqual(stock.json()["identity"]["stock_code"], "005930")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13,6 +13,14 @@ class SampleRepositoryTests(unittest.TestCase):
         self.assertEqual(self.repository.get_stock_overview("000660").identity.stock_code, "000660")
         self.assertGreaterEqual(len(self.repository.get_news("stock", "semiconductor", "000660").items), 1)
 
+    def test_uses_dummy_fallback_for_missing_samples(self) -> None:
+        self.assertEqual(self.repository.get_sector("battery").selection.sector_id, "battery")
+        self.assertEqual(self.repository.get_stock_overview("005930").identity.stock_code, "005930")
+        self.assertEqual(
+            self.repository.get_news("stock", "semiconductor", "005930").selection.stock_code,
+            "005930",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
