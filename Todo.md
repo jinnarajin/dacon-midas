@@ -26,12 +26,12 @@ Market Cloud를 정적 프로토타입에서 유지보수 가능한 React + Fast
 
 ## 2. 데이터 모델 설계
 
-- [ ] `backend/app/schemas/market.py`에 시장 응답 스키마를 작성한다.
-- [ ] `backend/app/schemas/sector.py`에 섹터 응답 스키마를 작성한다.
-- [ ] `backend/app/schemas/stock.py`에 종목 응답 스키마를 작성한다.
-- [ ] `backend/app/schemas/news.py`에 뉴스/공시 응답 스키마를 작성한다.
-- [ ] `frontend/src/entities/*/model.ts`에 프론트 타입을 작성한다.
-- [ ] 백엔드 스키마와 프론트 타입의 필드명이 일치하는지 점검한다.
+- [x] `backend/app/schemas/market.py`에 시장 응답 스키마를 작성한다.
+- [x] `backend/app/schemas/sector.py`에 섹터 응답 스키마를 작성한다.
+- [x] `backend/app/schemas/stock.py`에 종목 응답 스키마를 작성한다.
+- [x] `backend/app/schemas/news.py`에 뉴스/공시 응답 스키마를 작성한다.
+- [x] `frontend/src/entities/*/model.ts`에 프론트 타입을 작성한다.
+- [x] 백엔드 스키마와 프론트 타입의 필드명이 일치하는지 점검한다.
 
 ## 3. Mock 기반 백엔드
 
