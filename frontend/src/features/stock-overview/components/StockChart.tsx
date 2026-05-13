@@ -12,6 +12,7 @@ function points(series: PricePoint[]): string {
   const min = Math.min(...series.map((point) => point.close));
   const max = Math.max(...series.map((point) => point.close));
   const range = Math.max(1, max - min);
+
   return series
     .map((point, index) => {
       const x = series.length === 1 ? 50 : (index / (series.length - 1)) * 100;
@@ -24,7 +25,7 @@ function points(series: PricePoint[]): string {
 function periodLimit(period: ChartPeriod): number {
   switch (period) {
     case "1D":
-      return 1;
+      return 8;
     case "1W":
       return 5;
     case "1M":
@@ -36,8 +37,16 @@ function periodLimit(period: ChartPeriod): number {
   }
 }
 
+function visiblePriceSeries(chart: StockChartData, period: ChartPeriod): PricePoint[] {
+  const periodSeries = chart.period_series?.[period];
+  if (periodSeries?.length) {
+    return periodSeries;
+  }
+  return chart.price_series.slice(-periodLimit(period));
+}
+
 export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
-  const visibleSeries = chart.price_series.slice(-periodLimit(period));
+  const visibleSeries = visiblePriceSeries(chart, period);
   const latest = visibleSeries[visibleSeries.length - 1];
 
   return (
@@ -75,7 +84,7 @@ export function StockChart({ chart, period, onPeriodChange }: StockChartProps) {
             })}
           </div>
           <p className="chart-caption">
-            {period} 종가 {latest ? formatKrw(latest.close) : "-"}
+            {period} 종가 {latest ? formatKrw(latest.close) : "-"} · 표시 구간 {visibleSeries.length}개
           </p>
         </>
       ) : (

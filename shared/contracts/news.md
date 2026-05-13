@@ -1,4 +1,4 @@
-# News Contract
+﻿# News Contract
 
 This document defines the shared response shape for news, disclosures, and reports.
 
@@ -31,7 +31,7 @@ Used by:
   "selection": {
     "level": "stock",
     "market": "KR",
-    "sector_id": "semiconductor",
+    "sector_id": "information-technology",
     "stock_code": "000660"
   },
   "as_of": "2026-05-10 15:30:00",
@@ -43,9 +43,9 @@ Used by:
       "source": "Example News",
       "published_at": "2026-05-10 10:07:00",
       "url": "https://example.com/news/20260510-021",
-      "summary": "Semiconductor names moved higher as investors focused on AI server demand.",
+      "summary": "information-technology names moved higher as investors focused on AI server demand.",
       "related_market": "KR",
-      "related_sector_ids": ["semiconductor"],
+      "related_sector_ids": ["information-technology"],
       "related_stock_codes": ["000660"],
       "tags": ["HBM", "AI server"],
       "priority": 1,
@@ -60,7 +60,7 @@ Used by:
       "url": "https://example.com/disclosure/20260510-005930-001",
       "summary": null,
       "related_market": "KR",
-      "related_sector_ids": ["semiconductor"],
+      "related_sector_ids": ["information-technology"],
       "related_stock_codes": ["005930"],
       "tags": ["disclosure", "investment"],
       "priority": 2,
@@ -175,3 +175,4 @@ Allowed values:
 - `items[].priority`
 - `items[].is_direct_match`
 - `empty_state`
+

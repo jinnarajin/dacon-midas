@@ -1,4 +1,4 @@
-# Market Contract
+﻿# Market Contract
 
 This document defines the MVP response for the market-level dashboard.
 
@@ -32,13 +32,13 @@ Used by:
     "rising_stock_ratio": 55.0,
     "average_change_rate": 0.74,
     "total_trading_value": 14230000000000,
-    "dominant_sector_id": "semiconductor",
+    "dominant_sector_id": "information-technology",
     "risk_level": "normal"
   },
   "sector_tiles": [
     {
-      "sector_id": "semiconductor",
-      "sector_name": "Semiconductor",
+      "sector_id": "information-technology",
+      "sector_name": "information-technology",
       "industry_group": "Information Technology",
       "stock_count": 42,
       "rising_stock_count": 30,
@@ -54,8 +54,8 @@ Used by:
   ],
   "leading_sectors": [
     {
-      "sector_id": "semiconductor",
-      "sector_name": "Semiconductor",
+      "sector_id": "information-technology",
+      "sector_name": "information-technology",
       "rank": 1,
       "basis": "trading_value",
       "value": 1180000000000
@@ -78,7 +78,7 @@ Used by:
       },
       {
         "label": "Leadership",
-        "value": "Semiconductor leads by trading value.",
+        "value": "information-technology leads by trading value.",
         "basis": "dominant_sector_id"
       }
     ],
@@ -167,4 +167,5 @@ Market-level narrative generated from rule-based indicators.
 - `sector_tiles[].volatility`
 - `insight.headline`
 - `related_news_ids`
+
 

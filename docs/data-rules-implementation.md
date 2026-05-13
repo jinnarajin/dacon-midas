@@ -7,7 +7,7 @@ This note maps `skills/data_rules.md` into the current backend implementation.
 The mock backend currently validates the following contract-shaped sample payloads:
 
 - `data/samples/market-summary.json`
-- `data/samples/sector-semiconductor.json`
+- `data/samples/sector-information-technology.json`
 - `data/samples/stock-000660-overview.json`
 - `data/samples/news-stock-000660.json`
 
@@ -31,4 +31,3 @@ Required field groups:
 - `backend/app/schemas/*.py` validates contract shape.
 - `backend/app/domains/rules/indicator_rules.py` owns indicator calculations.
 - `backend/app/domains/rules/insight_rules.py` blocks investment recommendation wording.
-

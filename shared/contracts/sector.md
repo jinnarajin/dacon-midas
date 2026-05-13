@@ -1,4 +1,4 @@
-# Sector Contract
+﻿# Sector Contract
 
 This document defines the MVP response for a sector-level dashboard view.
 
@@ -21,12 +21,12 @@ Used by:
   "selection": {
     "level": "sector",
     "market": "KR",
-    "sector_id": "semiconductor"
+    "sector_id": "information-technology"
   },
   "as_of": "2026-05-10 15:30:00",
   "summary": {
-    "sector_id": "semiconductor",
-    "sector_name": "Semiconductor",
+    "sector_id": "information-technology",
+    "sector_name": "information-technology",
     "industry_group": "Information Technology",
     "stock_count": 42,
     "rising_stock_count": 30,
@@ -75,7 +75,7 @@ Used by:
     "top_decliners": [
       {
         "stock_code": "042700",
-        "stock_name": "Hanmi Semiconductor",
+        "stock_name": "Hanmi information-technology",
         "rank": 1,
         "change_rate": -1.25
       }
@@ -97,7 +97,7 @@ Used by:
     }
   ],
   "insight": {
-    "headline": "Semiconductor is outperforming the broader market with strong trading activity.",
+    "headline": "information-technology is outperforming the broader market with strong trading activity.",
     "rows": [
       {
         "label": "Sector strength",
@@ -106,7 +106,7 @@ Used by:
       },
       {
         "label": "Participation",
-        "value": "71.43% of tracked semiconductor stocks are rising.",
+        "value": "70.0% of tracked information technology stocks are rising.",
         "basis": "rising_stock_ratio"
       }
     ],
@@ -210,4 +210,5 @@ Sector-level narrative generated from rule-based indicators.
 - `rankings.trading_value_leaders`
 - `insight.headline`
 - `related_news_ids`
+
 

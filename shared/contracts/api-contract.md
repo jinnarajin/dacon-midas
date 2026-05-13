@@ -68,16 +68,16 @@ Example:
   "selection": {
     "level": "sector",
     "market": "KR",
-    "sector_id": "semiconductor"
+    "sector_id": "information-technology"
   },
   "as_of": "2026-05-10 15:30:00",
   "summary": {
-    "sector_id": "semiconductor",
-    "sector_name": "Semiconductor",
-    "stock_count": 42,
-    "rising_stock_ratio": 71.43,
-    "average_change_rate": 2.14,
-    "excess_return": 1.4,
+    "sector_id": "information-technology",
+    "sector_name": "정보기술",
+    "stock_count": 20,
+    "rising_stock_ratio": 70.0,
+    "average_change_rate": 2.08,
+    "excess_return": 1.26,
     "total_trading_value": 1180000000000,
     "risk_level": "watch"
   },
@@ -112,17 +112,17 @@ Example:
   "selection": {
     "level": "stock",
     "market": "KR",
-    "sector_id": "semiconductor",
+    "sector_id": "information-technology",
     "stock_code": "000660"
   },
   "as_of": "2026-05-10 15:30:00",
   "identity": {
     "stock_code": "000660",
-    "stock_name": "SK hynix",
+    "stock_name": "SK하이닉스",
     "market": "KOSPI",
-    "sector_id": "semiconductor",
-    "sector_name": "Semiconductor",
-    "industry": "Memory"
+    "sector_id": "information-technology",
+    "sector_name": "정보기술",
+    "industry": "반도체"
   },
   "quote": {
     "current_price": 189400,
@@ -165,8 +165,8 @@ Query examples:
 
 ```http
 GET /api/news?selection_level=market&market=KR
-GET /api/news?selection_level=sector&market=KR&sector_id=semiconductor
-GET /api/news?selection_level=stock&market=KR&sector_id=semiconductor&stock_code=000660
+GET /api/news?selection_level=sector&market=KR&sector_id=information-technology
+GET /api/news?selection_level=stock&market=KR&sector_id=information-technology&stock_code=000660
 ```
 
 Example:
@@ -176,7 +176,7 @@ Example:
   "selection": {
     "level": "stock",
     "market": "KR",
-    "sector_id": "semiconductor",
+    "sector_id": "information-technology",
     "stock_code": "000660"
   },
   "as_of": "2026-05-10 15:30:00",
@@ -190,7 +190,7 @@ Example:
       "url": "https://example.com/news/20260510-021",
       "summary": "Semiconductor names moved higher as investors focused on AI server demand.",
       "related_market": "KR",
-      "related_sector_ids": ["semiconductor"],
+      "related_sector_ids": ["information-technology"],
       "related_stock_codes": ["000660"],
       "tags": ["HBM", "AI server"],
       "priority": 1,

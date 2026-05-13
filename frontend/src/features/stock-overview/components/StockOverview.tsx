@@ -20,7 +20,9 @@ export function StockOverview({ overview, period, onPeriodChange }: StockOvervie
         <div>
           <p className="eyebrow">{overview.identity.sector_name}</p>
           <h2>{overview.identity.stock_name}</h2>
-          <span>{overview.identity.stock_code} / {overview.identity.market}</span>
+          <span>
+            {overview.identity.stock_code} / {overview.identity.market}
+          </span>
         </div>
         <div className="quote-box">
           <strong>{formatKrw(overview.quote.current_price)}</strong>

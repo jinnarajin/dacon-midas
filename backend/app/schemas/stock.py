@@ -72,6 +72,7 @@ class StockChart(BaseModel):
     available_periods: list[Literal["1D", "1W", "1M", "3M", "1Y"]]
     price_series: list[PricePoint]
     volume_series: list[VolumePoint]
+    period_series: dict[Literal["1D", "1W", "1M", "3M", "1Y"], list[PricePoint]] | None = None
 
 
 class StockOverviewResponse(BaseModel):

@@ -2,111 +2,627 @@
   "selection": {
     "level": "stock",
     "market": "KR",
-    "sector_id": "semiconductor",
+    "sector_id": "information-technology",
     "stock_code": "000660"
   },
   "as_of": "2026-05-10 15:30:00",
   "identity": {
     "stock_code": "000660",
-    "stock_name": "SK하이닉스",
+    "stock_name": "SK????",
     "market": "KOSPI",
-    "sector_id": "semiconductor",
-    "sector_name": "반도체",
-    "industry": "메모리"
+    "sector_id": "information-technology",
+    "sector_name": "????",
+    "industry": "???"
   },
   "quote": {
-    "current_price": 189400,
-    "previous_close": 181900,
-    "change": 7500,
-    "change_rate": 4.12,
-    "volume": 650000,
-    "average_volume": 310000,
-    "volume_growth_rate": 109.68,
-    "trading_value": 123110000000,
-    "market_cap": 137800000000000,
-    "volatility": 1.88,
-    "has_disclosure": false
+    "current_price": 228500,
+    "previous_close": 219000,
+    "change": 9500,
+    "change_rate": 4.34,
+    "volume": 6120000,
+    "average_volume": 3980000,
+    "volume_growth_rate": 53.77,
+    "trading_value": 1398000000000,
+    "market_cap": 166300000000000,
+    "volatility": 1.62,
+    "has_disclosure": true
   },
   "kpis": [
     {
       "key": "change_rate",
-      "label": "등락률",
-      "value": 4.12,
+      "label": "???",
+      "value": 4.34,
       "unit": "percent",
       "status": "positive"
     },
     {
       "key": "trading_value",
-      "label": "거래대금",
-      "value": 123110000000,
+      "label": "????",
+      "value": 1398000000000,
       "unit": "krw",
-      "status": "neutral"
+      "status": "positive"
+    },
+    {
+      "key": "volume_growth_rate",
+      "label": "??? ???",
+      "value": 53.77,
+      "unit": "percent",
+      "status": "watch"
+    },
+    {
+      "key": "sector_rank",
+      "label": "?? ??? ??",
+      "value": 2,
+      "unit": "rank",
+      "status": "positive"
     }
   ],
   "sector_comparison": {
-    "sector_average_change_rate": 2.14,
-    "excess_return": 1.98,
-    "sector_average_volume_growth_rate": 84.2,
-    "volume_growth_gap": 25.48,
+    "sector_average_change_rate": 2.08,
+    "excess_return": 2.26,
+    "sector_average_volume_growth_rate": 72.4,
+    "volume_growth_gap": -18.63,
     "rank_in_sector_by_change_rate": 2,
-    "rank_in_sector_by_trading_value": 1,
-    "sector_stock_count": 42
+    "rank_in_sector_by_trading_value": 2,
+    "sector_stock_count": 20
   },
   "chart": {
     "default_period": "1M",
-    "available_periods": ["1D", "1W", "1M", "3M", "1Y"],
+    "available_periods": [
+      "1D",
+      "1W",
+      "1M",
+      "3M",
+      "1Y"
+    ],
     "price_series": [
       {
-        "date": "2026-05-08",
-        "open": 181000,
-        "high": 184500,
+        "date": "2025-05-10",
+        "open": 147000,
+        "high": 151000,
+        "low": 145000,
+        "close": 149500,
+        "volume": 2310000
+      },
+      {
+        "date": "2025-06-10",
+        "open": 151000,
+        "high": 158000,
+        "low": 149000,
+        "close": 156000,
+        "volume": 2540000
+      },
+      {
+        "date": "2025-07-10",
+        "open": 157000,
+        "high": 164000,
+        "low": 154000,
+        "close": 160500,
+        "volume": 2860000
+      },
+      {
+        "date": "2025-08-10",
+        "open": 160000,
+        "high": 166500,
+        "low": 155000,
+        "close": 158500,
+        "volume": 3010000
+      },
+      {
+        "date": "2025-09-10",
+        "open": 159000,
+        "high": 168000,
+        "low": 157500,
+        "close": 166000,
+        "volume": 3220000
+      },
+      {
+        "date": "2025-10-10",
+        "open": 166500,
+        "high": 174000,
+        "low": 164000,
+        "close": 171500,
+        "volume": 3470000
+      },
+      {
+        "date": "2025-11-10",
+        "open": 172000,
+        "high": 181000,
+        "low": 170000,
+        "close": 179000,
+        "volume": 3760000
+      },
+      {
+        "date": "2025-12-10",
+        "open": 180000,
+        "high": 188500,
+        "low": 176000,
+        "close": 184500,
+        "volume": 3520000
+      },
+      {
+        "date": "2026-01-10",
+        "open": 185000,
+        "high": 190000,
+        "low": 178500,
+        "close": 182000,
+        "volume": 3340000
+      },
+      {
+        "date": "2026-02-10",
+        "open": 176000,
+        "high": 180000,
+        "low": 173500,
+        "close": 178000,
+        "volume": 2840000
+      },
+      {
+        "date": "2026-03-10",
+        "open": 181500,
+        "high": 188000,
         "low": 180000,
-        "close": 181900,
-        "volume": 310000
+        "close": 186500,
+        "volume": 3480000
+      },
+      {
+        "date": "2026-04-10",
+        "open": 198000,
+        "high": 202500,
+        "low": 196500,
+        "close": 201000,
+        "volume": 3120000
       },
       {
         "date": "2026-05-10",
-        "open": 183000,
-        "high": 190000,
-        "low": 181500,
-        "close": 189400,
-        "volume": 650000
+        "open": 221000,
+        "high": 231000,
+        "low": 220000,
+        "close": 228500,
+        "volume": 6120000
       }
     ],
     "volume_series": [
       {
-        "date": "2026-05-08",
-        "volume": 310000
+        "date": "2025-05-10",
+        "volume": 2310000
+      },
+      {
+        "date": "2025-06-10",
+        "volume": 2540000
+      },
+      {
+        "date": "2025-07-10",
+        "volume": 2860000
+      },
+      {
+        "date": "2025-08-10",
+        "volume": 3010000
+      },
+      {
+        "date": "2025-09-10",
+        "volume": 3220000
+      },
+      {
+        "date": "2025-10-10",
+        "volume": 3470000
+      },
+      {
+        "date": "2025-11-10",
+        "volume": 3760000
+      },
+      {
+        "date": "2025-12-10",
+        "volume": 3520000
+      },
+      {
+        "date": "2026-01-10",
+        "volume": 3340000
+      },
+      {
+        "date": "2026-02-10",
+        "volume": 2840000
+      },
+      {
+        "date": "2026-03-10",
+        "volume": 3480000
+      },
+      {
+        "date": "2026-04-10",
+        "volume": 3120000
       },
       {
         "date": "2026-05-10",
-        "volume": 650000
+        "volume": 6120000
       }
-    ]
+    ],
+    "period_series": {
+      "1D": [
+        {
+          "date": "2026-05-10 09:05",
+          "open": 221000,
+          "high": 222500,
+          "low": 220000,
+          "close": 221500,
+          "volume": 420000
+        },
+        {
+          "date": "2026-05-10 10:00",
+          "open": 221500,
+          "high": 224000,
+          "low": 221000,
+          "close": 223500,
+          "volume": 680000
+        },
+        {
+          "date": "2026-05-10 11:00",
+          "open": 223500,
+          "high": 225500,
+          "low": 222800,
+          "close": 224000,
+          "volume": 740000
+        },
+        {
+          "date": "2026-05-10 12:00",
+          "open": 224000,
+          "high": 226000,
+          "low": 223000,
+          "close": 225500,
+          "volume": 620000
+        },
+        {
+          "date": "2026-05-10 13:00",
+          "open": 225500,
+          "high": 229000,
+          "low": 225000,
+          "close": 228000,
+          "volume": 930000
+        },
+        {
+          "date": "2026-05-10 14:00",
+          "open": 228000,
+          "high": 231000,
+          "low": 227000,
+          "close": 230500,
+          "volume": 1120000
+        },
+        {
+          "date": "2026-05-10 15:00",
+          "open": 230500,
+          "high": 231000,
+          "low": 228000,
+          "close": 229000,
+          "volume": 850000
+        },
+        {
+          "date": "2026-05-10 15:30",
+          "open": 229000,
+          "high": 229500,
+          "low": 228000,
+          "close": 228500,
+          "volume": 760000
+        }
+      ],
+      "1W": [
+        {
+          "date": "2026-05-04",
+          "open": 211000,
+          "high": 214000,
+          "low": 209500,
+          "close": 212500,
+          "volume": 3420000
+        },
+        {
+          "date": "2026-05-05",
+          "open": 213000,
+          "high": 216500,
+          "low": 212000,
+          "close": 215000,
+          "volume": 3650000
+        },
+        {
+          "date": "2026-05-06",
+          "open": 215500,
+          "high": 218000,
+          "low": 214000,
+          "close": 216500,
+          "volume": 3810000
+        },
+        {
+          "date": "2026-05-07",
+          "open": 217000,
+          "high": 220000,
+          "low": 216000,
+          "close": 219000,
+          "volume": 3980000
+        },
+        {
+          "date": "2026-05-10",
+          "open": 221000,
+          "high": 231000,
+          "low": 220000,
+          "close": 228500,
+          "volume": 6120000
+        }
+      ],
+      "1M": [
+        {
+          "date": "2026-04-10",
+          "open": 198000,
+          "high": 202500,
+          "low": 196500,
+          "close": 201000,
+          "volume": 3120000
+        },
+        {
+          "date": "2026-04-14",
+          "open": 201500,
+          "high": 205000,
+          "low": 200500,
+          "close": 203000,
+          "volume": 2980000
+        },
+        {
+          "date": "2026-04-17",
+          "open": 202000,
+          "high": 209000,
+          "low": 199500,
+          "close": 207500,
+          "volume": 3540000
+        },
+        {
+          "date": "2026-04-21",
+          "open": 207000,
+          "high": 211500,
+          "low": 205500,
+          "close": 210000,
+          "volume": 3770000
+        },
+        {
+          "date": "2026-04-24",
+          "open": 208500,
+          "high": 216500,
+          "low": 205000,
+          "close": 214000,
+          "volume": 4210000
+        },
+        {
+          "date": "2026-04-28",
+          "open": 214500,
+          "high": 217000,
+          "low": 211500,
+          "close": 213500,
+          "volume": 3360000
+        },
+        {
+          "date": "2026-05-03",
+          "open": 215000,
+          "high": 222000,
+          "low": 211500,
+          "close": 219000,
+          "volume": 3980000
+        },
+        {
+          "date": "2026-05-07",
+          "open": 217000,
+          "high": 220000,
+          "low": 216000,
+          "close": 219000,
+          "volume": 3980000
+        },
+        {
+          "date": "2026-05-10",
+          "open": 221000,
+          "high": 231000,
+          "low": 220000,
+          "close": 228500,
+          "volume": 6120000
+        }
+      ],
+      "3M": [
+        {
+          "date": "2026-02-10",
+          "open": 176000,
+          "high": 180000,
+          "low": 173500,
+          "close": 178000,
+          "volume": 2840000
+        },
+        {
+          "date": "2026-02-24",
+          "open": 179000,
+          "high": 183500,
+          "low": 176000,
+          "close": 181000,
+          "volume": 3020000
+        },
+        {
+          "date": "2026-03-10",
+          "open": 181500,
+          "high": 188000,
+          "low": 180000,
+          "close": 186500,
+          "volume": 3480000
+        },
+        {
+          "date": "2026-03-24",
+          "open": 187000,
+          "high": 193000,
+          "low": 184000,
+          "close": 191000,
+          "volume": 3610000
+        },
+        {
+          "date": "2026-04-07",
+          "open": 191500,
+          "high": 199000,
+          "low": 190000,
+          "close": 198000,
+          "volume": 3950000
+        },
+        {
+          "date": "2026-04-21",
+          "open": 207000,
+          "high": 211500,
+          "low": 205500,
+          "close": 210000,
+          "volume": 3770000
+        },
+        {
+          "date": "2026-05-03",
+          "open": 215000,
+          "high": 222000,
+          "low": 211500,
+          "close": 219000,
+          "volume": 3980000
+        },
+        {
+          "date": "2026-05-10",
+          "open": 221000,
+          "high": 231000,
+          "low": 220000,
+          "close": 228500,
+          "volume": 6120000
+        }
+      ],
+      "1Y": [
+        {
+          "date": "2025-05-10",
+          "open": 147000,
+          "high": 151000,
+          "low": 145000,
+          "close": 149500,
+          "volume": 2310000
+        },
+        {
+          "date": "2025-06-10",
+          "open": 151000,
+          "high": 158000,
+          "low": 149000,
+          "close": 156000,
+          "volume": 2540000
+        },
+        {
+          "date": "2025-07-10",
+          "open": 157000,
+          "high": 164000,
+          "low": 154000,
+          "close": 160500,
+          "volume": 2860000
+        },
+        {
+          "date": "2025-08-10",
+          "open": 160000,
+          "high": 166500,
+          "low": 155000,
+          "close": 158500,
+          "volume": 3010000
+        },
+        {
+          "date": "2025-09-10",
+          "open": 159000,
+          "high": 168000,
+          "low": 157500,
+          "close": 166000,
+          "volume": 3220000
+        },
+        {
+          "date": "2025-10-10",
+          "open": 166500,
+          "high": 174000,
+          "low": 164000,
+          "close": 171500,
+          "volume": 3470000
+        },
+        {
+          "date": "2025-11-10",
+          "open": 172000,
+          "high": 181000,
+          "low": 170000,
+          "close": 179000,
+          "volume": 3760000
+        },
+        {
+          "date": "2025-12-10",
+          "open": 180000,
+          "high": 188500,
+          "low": 176000,
+          "close": 184500,
+          "volume": 3520000
+        },
+        {
+          "date": "2026-01-10",
+          "open": 185000,
+          "high": 190000,
+          "low": 178500,
+          "close": 182000,
+          "volume": 3340000
+        },
+        {
+          "date": "2026-02-10",
+          "open": 176000,
+          "high": 180000,
+          "low": 173500,
+          "close": 178000,
+          "volume": 2840000
+        },
+        {
+          "date": "2026-03-10",
+          "open": 181500,
+          "high": 188000,
+          "low": 180000,
+          "close": 186500,
+          "volume": 3480000
+        },
+        {
+          "date": "2026-04-10",
+          "open": 198000,
+          "high": 202500,
+          "low": 196500,
+          "close": 201000,
+          "volume": 3120000
+        },
+        {
+          "date": "2026-05-10",
+          "open": 221000,
+          "high": 231000,
+          "low": 220000,
+          "close": 228500,
+          "volume": 6120000
+        }
+      ]
+    }
   },
   "risk_flags": [
     {
-      "code": "high_volume_growth",
-      "level": "info",
-      "message": "Trading volume is above the recent average."
+      "code": "volume_spike",
+      "level": "watch",
+      "message": "???? ?? ?? 53.77% ??? ?? ?? ??? ???? ???."
     }
   ],
   "insight": {
-    "headline": "SK하이닉스는 섹터 평균을 웃돌며 거래 활동이 높게 나타납니다.",
+    "headline": "SK????? HBM ?? ??? AI ?? ?? ?? ?? ??? ???? ??? ???? ????.",
     "rows": [
       {
-        "label": "섹터 대비",
-        "value": "종목 등락률이 섹터 평균보다 1.98%p 높습니다.",
+        "label": "?? ??",
+        "value": "???? ???? ?? ???? 2.26%p ????.",
         "basis": "excess_return"
       },
       {
-        "label": "거래 활동",
-        "value": "거래량이 최근 평균보다 109.68% 높습니다.",
-        "basis": "volume_growth_rate"
+        "label": "?? ??",
+        "value": "???? ?? ???? ?? 2?? ??? ??? ??? ???? ????.",
+        "basis": "rank_in_sector_by_trading_value"
       }
     ],
-    "keywords": ["HBM", "메모리", "거래대금"]
+    "keywords": [
+      "SK????",
+      "HBM",
+      "AI??",
+      "????"
+    ]
   },
-  "related_news_ids": ["news-20260510-021"],
+  "related_news_ids": [
+    "news-20260510-001",
+    "news-20260510-002"
+  ],
   "related_disclosure_ids": []
 }

@@ -15,21 +15,24 @@ class ApiRouteTests(unittest.TestCase):
         self.assertEqual(response.json()["selection"]["level"], "market")
 
     def test_sector_route(self) -> None:
-        response = self.client.get("/api/sectors/semiconductor")
+        response = self.client.get("/api/sectors/information-technology")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json()["selection"]["sector_id"], "semiconductor")
+        self.assertEqual(response.json()["selection"]["sector_id"], "information-technology")
 
     def test_stock_overview_route(self) -> None:
         response = self.client.get("/api/stocks/000660/overview")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["identity"]["stock_code"], "000660")
+        chart = response.json()["chart"]
+        self.assertIn("period_series", chart)
+        self.assertNotEqual(chart["period_series"]["1D"], chart["period_series"]["1Y"])
 
     def test_news_route(self) -> None:
         response = self.client.get(
             "/api/news",
             params={
                 "selection_level": "stock",
-                "sector_id": "semiconductor",
+                "sector_id": "information-technology",
                 "stock_code": "000660",
             },
         )
@@ -37,9 +40,10 @@ class ApiRouteTests(unittest.TestCase):
         self.assertGreaterEqual(len(response.json()["items"]), 1)
 
     def test_missing_sample_routes_return_fallback_payloads(self) -> None:
-        sector = self.client.get("/api/sectors/battery")
+        sector = self.client.get("/api/sectors/materials")
         self.assertEqual(sector.status_code, 200)
-        self.assertEqual(sector.json()["selection"]["sector_id"], "battery")
+        self.assertEqual(sector.json()["selection"]["sector_id"], "materials")
+        self.assertEqual(len(sector.json()["stock_tiles"]), 20)
 
         stock = self.client.get("/api/stocks/005930/overview")
         self.assertEqual(stock.status_code, 200)

@@ -1,4 +1,4 @@
-# Stock Contract
+﻿# Stock Contract
 
 This document defines the MVP response for a stock Overview view.
 
@@ -22,7 +22,7 @@ Used by:
   "selection": {
     "level": "stock",
     "market": "KR",
-    "sector_id": "semiconductor",
+    "sector_id": "information-technology",
     "stock_code": "000660"
   },
   "as_of": "2026-05-10 15:30:00",
@@ -30,8 +30,8 @@ Used by:
     "stock_code": "000660",
     "stock_name": "SK hynix",
     "market": "KOSPI",
-    "sector_id": "semiconductor",
-    "sector_name": "Semiconductor",
+    "sector_id": "information-technology",
+    "sector_name": "information-technology",
     "industry": "Memory"
   },
   "quote": {
@@ -215,3 +215,4 @@ Stock-level narrative generated from rule-based indicators.
 - `insight.headline`
 - `related_news_ids`
 - `related_disclosure_ids`
+

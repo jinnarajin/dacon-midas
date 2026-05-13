@@ -72,6 +72,7 @@ export interface StockChart {
   available_periods: ChartPeriod[];
   price_series: PricePoint[];
   volume_series: VolumePoint[];
+  period_series?: Partial<Record<ChartPeriod, PricePoint[]>>;
 }
 
 export interface StockOverviewResponse {
