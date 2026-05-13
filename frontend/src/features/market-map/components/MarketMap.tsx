@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 import type { MarketSummaryResponse, SectorTile } from "../../../entities/market/model";
 import type { SectorResponse, StockTile } from "../../../entities/sector/model";
 import { formatKrw, formatPercent } from "../../../shared/lib/formatters";
@@ -66,6 +68,15 @@ function displaySizeValue(tile: SectorTile | StockTile, metric: MapMetric): stri
   return formatKrw(value);
 }
 
+function tileStyle(basis: number): CSSProperties {
+  const scaled = Math.sqrt(Math.max(0.04, basis));
+  return {
+    flexGrow: Math.max(0.25, scaled * 3),
+    flexBasis: `${150 + scaled * 280}px`,
+    minHeight: `${96 + scaled * 150}px`
+  };
+}
+
 export function MarketMap({
   level,
   market,
@@ -125,7 +136,7 @@ export function MarketMap({
                 <button
                   className={`map-tile ${tone}`}
                   key={tile.sector_id}
-                  style={{ flexGrow: Math.max(0.35, basis * 2.5) }}
+                  style={tileStyle(basis)}
                   type="button"
                   onClick={() => onSelectSector(tile.sector_id)}
                 >
@@ -142,7 +153,7 @@ export function MarketMap({
                 <button
                   className={`map-tile ${tone}`}
                   key={tile.stock_code}
-                  style={{ flexGrow: Math.max(0.35, basis * 2.5) }}
+                  style={tileStyle(basis)}
                   type="button"
                   onClick={() => onSelectStock(tile.stock_code)}
                 >
