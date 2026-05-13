@@ -4,9 +4,7 @@ import type { MarketSummaryResponse } from "../entities/market/model";
 import type { NewsResponse } from "../entities/news/model";
 import type { SectorResponse } from "../entities/sector/model";
 import type { ChartPeriod, StockOverviewResponse } from "../entities/stock/model";
-import { InsightPanel } from "../features/insights/components/InsightPanel";
 import { MarketMap } from "../features/market-map/components/MarketMap";
-import { NewsDock } from "../features/news-feed/components/NewsDock";
 import { StockOverview } from "../features/stock-overview/components/StockOverview";
 import { getMarketSummary, getNews, getSector, getStockOverview } from "../services/marketApi";
 import {
@@ -62,18 +60,15 @@ export function App() {
       .catch((caught: Error) => setError(caught.message));
   }, [selection.selectedLevel, selection.selectedSectorId, selection.selectedStockCode]);
 
-  const activeInsight = useMemo(() => {
-    if (selection.selectedLevel === "stock") return stock?.insight ?? null;
-    if (selection.selectedLevel === "sector") return sector?.insight ?? null;
-    return market?.insight ?? null;
-  }, [market, sector, selection.selectedLevel, stock]);
-
-  const insightScope =
-    selection.selectedLevel === "stock"
-      ? stock?.identity.stock_name ?? "Stock"
-      : selection.selectedLevel === "sector"
-        ? sector?.summary.sector_name ?? "Sector"
-        : "Market";
+  const hierarchyTitle = useMemo(() => {
+    if (selection.selectedLevel === "stock") {
+      return stock?.identity.stock_name ?? selection.selectedStockCode ?? "Stock";
+    }
+    if (selection.selectedLevel === "sector") {
+      return sector?.summary.sector_name ?? selection.selectedSectorId ?? "Sector";
+    }
+    return market?.summary.market_name ?? "KR Market";
+  }, [market, sector, selection.selectedLevel, selection.selectedSectorId, selection.selectedStockCode, stock]);
 
   function updateMapMetric(metric: MapMetric) {
     setSelection((current) => ({ ...current, mapMetric: metric }));
@@ -88,11 +83,11 @@ export function App() {
   }
 
   return (
-    <div className="app-shell" data-theme={theme}>
+    <div className="app-shell map-only-shell" data-theme={theme}>
       <header className="app-header">
         <div>
           <p className="eyebrow">Market Cloud</p>
-          <h1>마켓 인텔리전스 대시보드</h1>
+          <h1>섹터 계층 맵</h1>
         </div>
         <div className="header-actions">
           <button
@@ -109,7 +104,31 @@ export function App() {
 
       {error ? <div className="error-banner">{error}</div> : null}
 
-      <main className="dashboard-grid">
+      <nav className="hierarchy-bar" aria-label="Selection hierarchy">
+        <button type="button" onClick={() => setSelection((current) => selectMarket(current))}>
+          Market
+        </button>
+        {selection.selectedSectorId ? (
+          <>
+            <span>/</span>
+            <button
+              type="button"
+              onClick={() => setSelection((current) => selectSector(current, selection.selectedSectorId ?? ""))}
+            >
+              {sector?.summary.sector_name ?? selection.selectedSectorId}
+            </button>
+          </>
+        ) : null}
+        {selection.selectedStockCode ? (
+          <>
+            <span>/</span>
+            <strong>{stock?.identity.stock_name ?? selection.selectedStockCode}</strong>
+          </>
+        ) : null}
+        <em>{hierarchyTitle}</em>
+      </nav>
+
+      <main className="map-focus">
         <MarketMap
           level={selection.selectedLevel}
           market={market}
@@ -126,11 +145,15 @@ export function App() {
             )
           }
         />
-        <InsightPanel scope={insightScope} insight={activeInsight} />
       </main>
 
-      <StockOverview overview={stock} period={selection.period} onPeriodChange={updatePeriod} />
-      <NewsDock news={news} />
+      {selection.selectedLevel === "stock" ? (
+        <StockOverview overview={stock} period={selection.period} onPeriodChange={updatePeriod} />
+      ) : null}
+
+      <div className="screen-reader-only" aria-live="polite">
+        {news?.items.length ?? 0} related news items loaded.
+      </div>
     </div>
   );
 }

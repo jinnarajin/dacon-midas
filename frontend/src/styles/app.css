@@ -1,23 +1,23 @@
 :root {
   color: #172026;
-  background: #f4f6f5;
+  background: #ffffff;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .app-shell {
-  --bg: #f4f6f5;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-muted: #f6f8f7;
-  --border: #dde5e1;
-  --border-strong: #cfd8d3;
-  --text: #172026;
-  --muted: #5b6b66;
-  --accent: #1f6f61;
-  --accent-strong: #1f8f5f;
-  --danger: #c94c4c;
-  --watch: #d89c2b;
-  --shadow: 0 12px 30px rgba(23, 32, 38, 0.08);
+  --surface-muted: #f8fafc;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-strong: #16a34a;
+  --danger: #dc2626;
+  --watch: #d97706;
+  --shadow: none;
 }
 
 .app-shell[data-theme="dark"] {
@@ -42,7 +42,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: #f4f6f5;
+  background: #ffffff;
 }
 
 button {
@@ -55,6 +55,11 @@ button {
   min-height: 100vh;
   padding: 24px;
   transition: background 160ms ease, color 160ms ease;
+}
+
+.map-only-shell {
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header,
@@ -128,6 +133,50 @@ button {
   grid-template-columns: minmax(0, 1fr) 360px;
   margin: 0 auto;
   max-width: 1280px;
+}
+
+.hierarchy-bar {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin: 0 auto 14px;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.hierarchy-bar button {
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0;
+}
+
+.hierarchy-bar span,
+.hierarchy-bar em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.hierarchy-bar em {
+  margin-left: auto;
+}
+
+.map-focus {
+  display: grid;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.map-focus .map-panel {
+  min-height: calc(100vh - 180px);
+}
+
+.map-focus .tile-grid {
+  min-height: calc(100vh - 380px);
 }
 
 .map-panel,
@@ -206,6 +255,7 @@ button {
 
 .summary-strip {
   background: var(--surface-muted);
+  border: 1px solid var(--border);
   border-radius: 8px;
   margin-bottom: 12px;
   padding: 10px;
@@ -215,23 +265,27 @@ button {
   align-content: stretch;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   min-height: 360px;
 }
 
 .map-tile {
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #ffffff;
   cursor: pointer;
   display: flex;
-  flex-basis: 180px;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 126px;
-  min-width: 160px;
+  min-width: 132px;
   padding: 14px;
   text-align: left;
+  transition: filter 120ms ease, transform 120ms ease;
+}
+
+.map-tile:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
 }
 
 .map-tile.positive {
@@ -432,6 +486,16 @@ button {
   margin: 4px 0;
 }
 
+.screen-reader-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 @media (max-width: 900px) {
   .app-shell {
     padding: 14px;
@@ -454,6 +518,21 @@ button {
   .dashboard-grid,
   .kpi-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hierarchy-bar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .hierarchy-bar em {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .map-focus .map-panel,
+  .map-focus .tile-grid {
+    min-height: 420px;
   }
 
   .map-tile {

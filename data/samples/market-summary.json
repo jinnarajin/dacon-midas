@@ -13,59 +13,208 @@
     "rising_stock_ratio": 55.0,
     "average_change_rate": 0.74,
     "total_trading_value": 14230000000000,
-    "dominant_sector_id": "semiconductor",
+    "dominant_sector_id": "information_technology",
     "risk_level": "normal"
   },
   "sector_tiles": [
     {
-      "sector_id": "semiconductor",
-      "sector_name": "Semiconductor",
-      "industry_group": "Information Technology",
-      "stock_count": 42,
-      "rising_stock_count": 30,
-      "rising_stock_ratio": 71.43,
-      "average_change_rate": 2.14,
-      "total_market_cap": 682000000000000,
-      "total_trading_value": 1180000000000,
-      "volume_growth_rate": 84.2,
-      "volatility": 1.36,
+      "sector_id": "information_technology",
+      "sector_name": "정보기술 (Information Technology)",
+      "industry_group": "GICS Sector",
+      "stock_count": 246,
+      "rising_stock_count": 164,
+      "rising_stock_ratio": 66.67,
+      "average_change_rate": 1.86,
+      "total_market_cap": 982000000000000,
+      "total_trading_value": 2480000000000,
+      "volume_growth_rate": 82.4,
+      "volatility": 1.42,
       "has_disclosure": true,
-      "keywords": ["HBM", "AI server"]
+      "keywords": ["semiconductors", "software", "hardware"]
     },
     {
-      "sector_id": "battery",
-      "sector_name": "Battery",
-      "industry_group": "Materials",
-      "stock_count": 35,
-      "rising_stock_count": 11,
-      "rising_stock_ratio": 31.43,
-      "average_change_rate": -1.38,
-      "total_market_cap": 326000000000000,
-      "total_trading_value": 620000000000,
-      "volume_growth_rate": 22.7,
-      "volatility": 1.82,
+      "sector_id": "financials",
+      "sector_name": "금융 (Financials)",
+      "industry_group": "GICS Sector",
+      "stock_count": 188,
+      "rising_stock_count": 94,
+      "rising_stock_ratio": 50.0,
+      "average_change_rate": 0.18,
+      "total_market_cap": 351000000000000,
+      "total_trading_value": 880000000000,
+      "volume_growth_rate": 24.6,
+      "volatility": 0.92,
       "has_disclosure": false,
-      "keywords": ["EV", "lithium"]
+      "keywords": ["banks", "insurance", "brokerage"]
+    },
+    {
+      "sector_id": "health_care",
+      "sector_name": "헬스케어 (Health Care)",
+      "industry_group": "GICS Sector",
+      "stock_count": 312,
+      "rising_stock_count": 141,
+      "rising_stock_ratio": 45.19,
+      "average_change_rate": -0.42,
+      "total_market_cap": 226000000000000,
+      "total_trading_value": 690000000000,
+      "volume_growth_rate": 36.2,
+      "volatility": 1.66,
+      "has_disclosure": true,
+      "keywords": ["biotech", "pharma", "devices"]
+    },
+    {
+      "sector_id": "consumer_discretionary",
+      "sector_name": "임의소비재 (Consumer Discretionary)",
+      "industry_group": "GICS Sector",
+      "stock_count": 286,
+      "rising_stock_count": 159,
+      "rising_stock_ratio": 55.59,
+      "average_change_rate": 0.64,
+      "total_market_cap": 312000000000000,
+      "total_trading_value": 940000000000,
+      "volume_growth_rate": 41.8,
+      "volatility": 1.24,
+      "has_disclosure": false,
+      "keywords": ["autos", "retail", "leisure"]
+    },
+    {
+      "sector_id": "consumer_staples",
+      "sector_name": "필수소비재 (Consumer Staples)",
+      "industry_group": "GICS Sector",
+      "stock_count": 124,
+      "rising_stock_count": 70,
+      "rising_stock_ratio": 56.45,
+      "average_change_rate": 0.28,
+      "total_market_cap": 118000000000000,
+      "total_trading_value": 260000000000,
+      "volume_growth_rate": 18.9,
+      "volatility": 0.78,
+      "has_disclosure": false,
+      "keywords": ["food", "household", "retail"]
+    },
+    {
+      "sector_id": "industrials",
+      "sector_name": "산업재 (Industrials)",
+      "industry_group": "GICS Sector",
+      "stock_count": 364,
+      "rising_stock_count": 218,
+      "rising_stock_ratio": 59.89,
+      "average_change_rate": 1.12,
+      "total_market_cap": 275000000000000,
+      "total_trading_value": 1050000000000,
+      "volume_growth_rate": 68.1,
+      "volatility": 1.38,
+      "has_disclosure": true,
+      "keywords": ["shipbuilding", "machinery", "aerospace"]
+    },
+    {
+      "sector_id": "energy",
+      "sector_name": "에너지 (Energy)",
+      "industry_group": "GICS Sector",
+      "stock_count": 76,
+      "rising_stock_count": 35,
+      "rising_stock_ratio": 46.05,
+      "average_change_rate": -0.18,
+      "total_market_cap": 72000000000000,
+      "total_trading_value": 240000000000,
+      "volume_growth_rate": 31.4,
+      "volatility": 1.52,
+      "has_disclosure": false,
+      "keywords": ["oil", "gas", "renewables"]
+    },
+    {
+      "sector_id": "materials",
+      "sector_name": "원자재 (Materials)",
+      "industry_group": "GICS Sector",
+      "stock_count": 224,
+      "rising_stock_count": 89,
+      "rising_stock_ratio": 39.73,
+      "average_change_rate": -0.96,
+      "total_market_cap": 286000000000000,
+      "total_trading_value": 760000000000,
+      "volume_growth_rate": 52.7,
+      "volatility": 1.84,
+      "has_disclosure": false,
+      "keywords": ["chemicals", "steel", "battery materials"]
+    },
+    {
+      "sector_id": "utilities",
+      "sector_name": "유틸리티 (Utilities)",
+      "industry_group": "GICS Sector",
+      "stock_count": 42,
+      "rising_stock_count": 20,
+      "rising_stock_ratio": 47.62,
+      "average_change_rate": 0.06,
+      "total_market_cap": 39000000000000,
+      "total_trading_value": 85000000000,
+      "volume_growth_rate": 12.8,
+      "volatility": 0.64,
+      "has_disclosure": false,
+      "keywords": ["power", "gas", "infrastructure"]
+    },
+    {
+      "sector_id": "communication_services",
+      "sector_name": "통신서비스 (Communication Services)",
+      "industry_group": "GICS Sector",
+      "stock_count": 118,
+      "rising_stock_count": 72,
+      "rising_stock_ratio": 61.02,
+      "average_change_rate": 0.92,
+      "total_market_cap": 176000000000000,
+      "total_trading_value": 540000000000,
+      "volume_growth_rate": 46.5,
+      "volatility": 1.18,
+      "has_disclosure": true,
+      "keywords": ["telecom", "platforms", "media"]
+    },
+    {
+      "sector_id": "real_estate",
+      "sector_name": "부동산 (Real Estate)",
+      "industry_group": "GICS Sector",
+      "stock_count": 58,
+      "rising_stock_count": 24,
+      "rising_stock_ratio": 41.38,
+      "average_change_rate": -0.24,
+      "total_market_cap": 44000000000000,
+      "total_trading_value": 110000000000,
+      "volume_growth_rate": 21.6,
+      "volatility": 1.04,
+      "has_disclosure": false,
+      "keywords": ["REITs", "developers", "rental"]
     }
   ],
   "leading_sectors": [
     {
-      "sector_id": "semiconductor",
-      "sector_name": "Semiconductor",
+      "sector_id": "information_technology",
+      "sector_name": "정보기술 (Information Technology)",
       "rank": 1,
       "basis": "trading_value",
-      "value": 1180000000000
+      "value": 2480000000000
+    },
+    {
+      "sector_id": "industrials",
+      "sector_name": "산업재 (Industrials)",
+      "rank": 2,
+      "basis": "trading_value",
+      "value": 1050000000000
+    },
+    {
+      "sector_id": "consumer_discretionary",
+      "sector_name": "임의소비재 (Consumer Discretionary)",
+      "rank": 3,
+      "basis": "trading_value",
+      "value": 940000000000
     }
   ],
   "risk_flags": [
     {
-      "code": "high_volatility",
+      "code": "materials_volatility",
       "level": "watch",
-      "message": "Some high-volume sectors show elevated volatility."
+      "message": "Materials shows elevated volatility versus the broader market."
     }
   ],
   "insight": {
-    "headline": "Market strength is concentrated in leading technology sectors.",
+    "headline": "Market leadership is concentrated in GICS Information Technology and Industrials.",
     "rows": [
       {
         "label": "Breadth",
@@ -73,12 +222,12 @@
         "basis": "rising_stock_ratio"
       },
       {
-        "label": "Leadership",
-        "value": "Semiconductor leads by trading value.",
+        "label": "GICS leadership",
+        "value": "정보기술 (Information Technology) leads by trading value.",
         "basis": "dominant_sector_id"
       }
     ],
-    "keywords": ["technology", "trading value", "breadth"]
+    "keywords": ["GICS", "sector map", "breadth"]
   },
   "related_news_ids": ["news-20260510-001", "news-20260510-002"]
 }
