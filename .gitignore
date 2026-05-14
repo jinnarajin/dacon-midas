@@ -34,3 +34,4 @@ dev-artifacts/*
 Thumbs.db
 .vscode/
 .idea/
+.vercel
