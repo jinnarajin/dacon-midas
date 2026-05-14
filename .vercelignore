@@ -1,0 +1,6 @@
+api
+backend
+requirements.txt
+__pycache__
+*.pyc
+frontend/.npm-cache
