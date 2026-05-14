@@ -69,11 +69,11 @@ function displaySizeValue(tile: SectorTile | StockTile, metric: MapMetric): stri
 }
 
 function tileStyle(basis: number): CSSProperties {
-  const scaled = Math.sqrt(Math.max(0.04, basis));
+  const scaled = Math.pow(Math.max(0.03, basis), 0.58);
   return {
     flexGrow: Math.max(0.25, scaled * 3),
-    flexBasis: `${150 + scaled * 280}px`,
-    minHeight: `${96 + scaled * 150}px`
+    flexBasis: `${136 + scaled * 360}px`,
+    minHeight: `${104 + scaled * 172}px`
   };
 }
 
@@ -99,12 +99,12 @@ export function MarketMap({
     <section className="map-panel" aria-label="Market map">
       <div className="panel-header">
         <div>
-          <p className="eyebrow">{level === "market" ? "Market" : "Sector"}</p>
-          <h2>{level === "market" ? "Sector Map" : `${sector?.summary.sector_name ?? ""} Stocks`}</h2>
+          <p className="eyebrow">{level === "market" ? "섹터별 현황" : "섹터 구성 종목"}</p>
+          <h2>{level === "market" ? "GICS 11개 섹터 히트맵" : `${sector?.summary.sector_name ?? ""}`}</h2>
         </div>
         {level !== "market" ? (
           <button className="ghost-button" type="button" onClick={onSelectMarket}>
-            Back to market
+            전체 시장
           </button>
         ) : null}
       </div>
@@ -118,11 +118,11 @@ export function MarketMap({
       <MapLegend />
 
       <div className="summary-strip">
-        <span>{formatPercent(market?.summary.rising_stock_ratio)} rising</span>
-        <span>{formatPercent(market?.summary.average_change_rate)} avg change</span>
-        <span>{formatKrw(market?.summary.total_trading_value)} traded</span>
-        <span>Size: {sizeLabel(mapMetric)}</span>
-        <span>Color: {colorLabel(colorMetric)}</span>
+        <span><b>{formatPercent(market?.summary.rising_stock_ratio)}</b> 상승 종목</span>
+        <span><b>{formatPercent(market?.summary.average_change_rate)}</b> 평균 등락률</span>
+        <span><b>{formatKrw(market?.summary.total_trading_value)}</b> 거래대금</span>
+        <span>면적 <b>{sizeLabel(mapMetric)}</b></span>
+        <span>색상 <b>{colorLabel(colorMetric)}</b></span>
       </div>
 
       <div className="tile-grid">

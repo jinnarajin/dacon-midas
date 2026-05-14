@@ -21,14 +21,14 @@ export function MapToolbar({
           type="button"
           onClick={() => onMapMetricChange("market_cap")}
         >
-          Market cap
+          시가총액
         </button>
         <button
           className={mapMetric === "trading_value" ? "active" : ""}
           type="button"
           onClick={() => onMapMetricChange("trading_value")}
         >
-          Trading value
+          거래대금
         </button>
       </div>
       <div className="segmented" aria-label="Tile color metric">
@@ -37,14 +37,14 @@ export function MapToolbar({
           type="button"
           onClick={() => onColorMetricChange("change_rate")}
         >
-          Change
+          등락률
         </button>
         <button
           className={colorMetric === "volatility" ? "active" : ""}
           type="button"
           onClick={() => onColorMetricChange("volatility")}
         >
-          Volatility
+          변동성
         </button>
       </div>
     </div>
